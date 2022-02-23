@@ -1,0 +1,5 @@
+#!/bin/sh
+
+cd ${LAMBDA_TASK_ROOT:-.}
+
+./products -Dlogging.level.org.springframework=DEBUG
