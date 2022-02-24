@@ -24,49 +24,49 @@ import java.util.HashSet;
 
 @SpringBootApplication
 @TypeHint(types = {
-        DateTime.class,
-        APIGatewayProxyRequestEvent.class,
-        TracingInterceptor.class,
-        HashSet.class,
-        TraceHeader.class,
-        TraceID.class
-        },
-        typeNames = {
-                "com.amazonaws.services.lambda.runtime.events.APIGatewayProxyRequestEvent$ProxyRequestContext",
-                "com.amazonaws.services.lambda.runtime.events.APIGatewayProxyRequestEvent$RequestIdentity",
-                "com.amazonaws.xray.entities.TraceHeader$SampleDecision"
-        })
+  DateTime.class,
+  APIGatewayProxyRequestEvent.class,
+  TracingInterceptor.class,
+  HashSet.class,
+  TraceHeader.class,
+  TraceID.class
+},
+  typeNames = {
+    "com.amazonaws.services.lambda.runtime.events.APIGatewayProxyRequestEvent$ProxyRequestContext",
+    "com.amazonaws.services.lambda.runtime.events.APIGatewayProxyRequestEvent$RequestIdentity",
+    "com.amazonaws.xray.entities.TraceHeader$SampleDecision"
+  })
 public class SpringBootSampleApplication {
 
-    public static void main(String[] args) {
-        SpringApplication.run(SpringBootSampleApplication.class, args);
-    }
+  public static void main(String[] args) {
+    SpringApplication.run(SpringBootSampleApplication.class, args);
+  }
 
-    @Bean
-    public GetAllProductsFunction getAllProducts() {
-        return new GetAllProductsFunction();
-    }
+  @Bean
+  public GetAllProductsFunction getAllProducts() {
+    return new GetAllProductsFunction();
+  }
 
-    @Bean
-    public GetProductByIdFunction getProductById() {
-        return new GetProductByIdFunction();
-    }
+  @Bean
+  public GetProductByIdFunction getProductById() {
+    return new GetProductByIdFunction();
+  }
 
-    @Bean
-    public CreateProductFunction createProduct() {
-        return new CreateProductFunction();
-    }
+  @Bean
+  public CreateProductFunction createProduct() {
+    return new CreateProductFunction();
+  }
 
-    @Bean
-    public DeleteProductFunction deleteProduct() {
-        return new DeleteProductFunction();
-    }
+  @Bean
+  public DeleteProductFunction deleteProduct() {
+    return new DeleteProductFunction();
+  }
 
-    @Bean
-    @ConditionalOnMissingBean
-    public ObjectMapper defaultObjectMapper() {
-        ObjectMapper objectMapper = new ObjectMapper();
-        objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-        return objectMapper;
-    }
+  @Bean
+  @ConditionalOnMissingBean
+  public ObjectMapper defaultObjectMapper() {
+    ObjectMapper objectMapper = new ObjectMapper();
+    objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+    return objectMapper;
+  }
 }

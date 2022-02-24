@@ -7,7 +7,7 @@ Description: >
 Globals:
   Function:
     Tracing: Active
-    CodeUri: target/products-0.0.1-SNAPSHOT-aws.jar
+    CodeUri: target/springboot-lambda-function-1.0.0-SNAPSHOT-aws.jar
     Handler: org.springframework.cloud.function.adapter.aws.SpringBootStreamHandler
     Runtime: java11
     Timeout: 30

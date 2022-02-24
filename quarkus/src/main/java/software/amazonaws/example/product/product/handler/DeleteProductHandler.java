@@ -19,36 +19,35 @@ import java.util.Optional;
 
 @Named("deleteProduct")
 public class DeleteProductHandler implements RequestHandler<APIGatewayProxyRequestEvent, APIGatewayProxyResponseEvent> {
+  @Inject
+  ProductDao productDao;
 
-    @Inject
-    ProductDao productDao;
+  @Inject
+  ObjectMapper objectMapper;
 
-    @Inject
-    ObjectMapper objectMapper;
-
-    public APIGatewayProxyResponseEvent handleRequest(APIGatewayProxyRequestEvent requestEvent, Context context) {
-        if(!requestEvent.getHttpMethod().equals(SdkHttpMethod.DELETE.name())) {
-            return new APIGatewayProxyResponseEvent()
-                    .withStatusCode(HttpStatusCode.METHOD_NOT_ALLOWED)
-                    .withBody("Only DELETE method is supported");
-        }
-        try {
-            String id = requestEvent.getPathParameters().get("id");
-            Optional<Product> product = productDao.getProduct(id);
-            if(product.isEmpty()) {
-                return new APIGatewayProxyResponseEvent()
-                        .withStatusCode(HttpStatusCode.NOT_FOUND)
-                        .withBody("Product with id = " + id + " not found");
-            }
-            productDao.deleteProduct(id);
-            return new APIGatewayProxyResponseEvent()
-                    .withStatusCode(HttpStatusCode.OK)
-                    .withBody("Product with id = " + id + " deleted");
-        } catch (Exception e) {
-            e.printStackTrace();
-            return new APIGatewayProxyResponseEvent()
-                    .withStatusCode(HttpStatusCode.INTERNAL_SERVER_ERROR)
-                    .withBody("Internal Server Error");
-        }
+  public APIGatewayProxyResponseEvent handleRequest(APIGatewayProxyRequestEvent requestEvent, Context context) {
+    if (!requestEvent.getHttpMethod().equals(SdkHttpMethod.DELETE.name())) {
+      return new APIGatewayProxyResponseEvent()
+        .withStatusCode(HttpStatusCode.METHOD_NOT_ALLOWED)
+        .withBody("Only DELETE method is supported");
     }
+    try {
+      String id = requestEvent.getPathParameters().get("id");
+      Optional<Product> product = productDao.getProduct(id);
+      if (product.isEmpty()) {
+        return new APIGatewayProxyResponseEvent()
+          .withStatusCode(HttpStatusCode.NOT_FOUND)
+          .withBody("Product with id = " + id + " not found");
+      }
+      productDao.deleteProduct(id);
+      return new APIGatewayProxyResponseEvent()
+        .withStatusCode(HttpStatusCode.OK)
+        .withBody("Product with id = " + id + " deleted");
+    } catch (Exception e) {
+      e.printStackTrace();
+      return new APIGatewayProxyResponseEvent()
+        .withStatusCode(HttpStatusCode.INTERNAL_SERVER_ERROR)
+        .withBody("Internal Server Error");
+    }
+  }
 }

@@ -13,17 +13,17 @@ import software.amazonaws.example.product.entity.Products;
 @Controller
 public class GetAllProductsController {
 
-    private static final Logger logger = LoggerFactory.getLogger(GetAllProductsController.class);
-    private ProductDao productDao;
+  private static final Logger logger = LoggerFactory.getLogger(GetAllProductsController.class);
+  private final ProductDao productDao;
 
-    public GetAllProductsController(ProductDao productDao) {
-        this.productDao = productDao;
-    }
+  public GetAllProductsController(ProductDao productDao) {
+    this.productDao = productDao;
+  }
 
-    @Get("/products")
-    public Products getAllProducts() {
-        logger.info("Entering GetProducts Method !!");
-        return productDao.getAllProduct();
-    }
+  @Get("/products")
+  public Products getAllProducts() {
+    logger.info("Entering GetProducts Method !!");
+    return productDao.getAllProduct();
+  }
 
 }

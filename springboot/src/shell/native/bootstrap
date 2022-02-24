@@ -2,4 +2,4 @@
 
 cd ${LAMBDA_TASK_ROOT:-.}
 
-./products -Dlogging.level.org.springframework=DEBUG
+./springboot-lambda-function -Dlogging.level.org.springframework=DEBUG

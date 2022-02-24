@@ -5,7 +5,7 @@
 	<formats>
 		<format>zip</format>
 	</formats>
-	<baseDirectory></baseDirectory>
+  <baseDirectory/>
 	<fileSets>
 		<fileSet>
 			<directory>src/shell/native</directory>
@@ -22,7 +22,7 @@
 			<useDefaultExcludes>true</useDefaultExcludes>
 			<fileMode>0775</fileMode>
 			<includes>
-				<include>products</include>
+				<include>springboot-lambda-function</include>
 			</includes>
 		</fileSet>
 	</fileSets>

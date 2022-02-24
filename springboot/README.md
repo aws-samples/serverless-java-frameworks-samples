@@ -14,12 +14,29 @@ SAM will create an output of the API Gateway endpoint URL for future use in our 
 Make sure the app name used here matches with the `STACK_NAME` present under `load-test/run-load-test.sh`
 
 For deployment as GraalVM native image on custom runtime:
+
+On MacOS:
+```bash
+docker run --mount type=bind,source=$(pwd),destination=/project -it --entrypoint /bin/bash marksailes/al2-graalvm:11-22.0.0.2
+```
+
+On Windows:
 ```bash
 docker run -v ($pwd):/project -it --entrypoint /bin/bash marksailes/al2-graalvm:11-22.0.0.2
-# mvn clean package -Pnative
-# exit
+```
+Once docker downloads the image and runs, you would see a bash command that will run inside docker container.
+Run below command:
+
+```bash
+mvn clean package -Pnative
+exit
+```
+
+Once above command completes, run:
+```bash
 sam deploy -t template.native.yaml -g
 ```
+
 SAM will create an output of the API Gateway endpoint URL for future use in our load tests. 
 Make sure the app name used here matches with the `STACK_NAME` present under `load-test/run-load-test-native.sh`
 

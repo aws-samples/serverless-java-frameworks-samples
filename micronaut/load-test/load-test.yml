@@ -1,7 +1,7 @@
 config:
   target: "{{ $processEnvironment.API_URL }}"
   http:
-    timeout : 60
+    timeout: 60
   processor: "generator.js"
   phases:
     - duration: 600

@@ -13,16 +13,16 @@ import software.amazonaws.example.product.entity.Product;
 @Controller
 public class CreateProductController {
 
-    private ProductDao productDao;
+  private final ProductDao productDao;
 
-    public CreateProductController(ProductDao productDao) {
-        this.productDao = productDao;
-    }
+  public CreateProductController(ProductDao productDao) {
+    this.productDao = productDao;
+  }
 
-    @Put("/products/{id}")
-    public void createUpdateProduct(@PathVariable String id, @Body Product product) {
-        product.setId(id);
-        productDao.putProduct(product);
-    }
+  @Put("/products/{id}")
+  public void createUpdateProduct(@PathVariable String id, @Body Product product) {
+    product.setId(id);
+    productDao.putProduct(product);
+  }
 
 }

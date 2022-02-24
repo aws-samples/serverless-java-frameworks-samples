@@ -14,15 +14,15 @@ import java.util.Optional;
 @Controller
 public class GetProductByIdController {
 
-    private ProductDao productDao;
+  private final ProductDao productDao;
 
-    public GetProductByIdController(ProductDao productDao) {
-        this.productDao = productDao;
-    }
+  public GetProductByIdController(ProductDao productDao) {
+    this.productDao = productDao;
+  }
 
-    @Get("/products/{id}")
-    public Optional<Product> getProductById(@PathVariable String id) {
-        return productDao.getProduct(id);
-    }
+  @Get("/products/{id}")
+  public Optional<Product> getProductById(@PathVariable String id) {
+    return productDao.getProduct(id);
+  }
 
 }

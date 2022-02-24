@@ -11,15 +11,15 @@ import software.amazonaws.example.product.dao.ProductDao;
 @Controller
 public class DeleteProductController {
 
-    private ProductDao productDao;
+  private final ProductDao productDao;
 
-    public DeleteProductController(ProductDao productDao) {
-        this.productDao = productDao;
-    }
+  public DeleteProductController(ProductDao productDao) {
+    this.productDao = productDao;
+  }
 
-    @Delete("/products/{id}")
-    public void deleteProduct(@PathVariable String id) {
-        productDao.deleteProduct(id);
-    }
+  @Delete("/products/{id}")
+  public void deleteProduct(@PathVariable String id) {
+    productDao.deleteProduct(id);
+  }
 
 }
