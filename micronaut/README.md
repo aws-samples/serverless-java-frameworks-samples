@@ -55,13 +55,13 @@ filter @type="REPORT"
 
 Latency for JVM version:
 <p align="center">
-  <img src="imgs/micronaut/micronaut-sample-log-insights.JPG" alt="JVM Version Log Insights"/>
+  <img src="../imgs/micronaut/micronaut-sample-log-insights.JPG" alt="JVM Version Log Insights"/>
 </p>
 
 Latency for GraalVM version:
 
 <p align="center">
-  <img src="imgs/micronaut/micronaut-native-log-insights.JPG" alt="GraalVM Version Log Insights"/>
+  <img src="../imgs/micronaut/micronaut-native-log-insights.JPG" alt="GraalVM Version Log Insights"/>
 </p>
 
 ## AWS X-Ray Tracing
@@ -70,24 +70,24 @@ You can add additional detail to your X-Ray tracing by adding a TracingIntercept
 Example cold start trace for JVM version:
 
 <p align="center">
-  <img src="imgs/micronaut/micronaut-sample-cold-trace.JPG" alt="JVM Version Cold Trace Example"/>
+  <img src="../imgs/micronaut/micronaut-sample-cold-trace.JPG" alt="JVM Version Cold Trace Example"/>
 </p>
 
 Example cold start trace for GraalVM version:
 
 <p align="center">
-  <img src="imgs/micronaut/micronaut-native-cold-trace.JPG" alt="GraalVM Version Cold Trace Example"/>
+  <img src="../imgs/micronaut/micronaut-native-cold-trace.JPG" alt="GraalVM Version Cold Trace Example"/>
 </p>
 
 Example warm start trace for JVM version:
 
 <p align="center">
-  <img src="imgs/micronaut/micronaut-sample-warm-trace.JPG" alt="JVM Version Warm Trace Example"/>
+  <img src="../imgs/micronaut/micronaut-sample-warm-trace.JPG" alt="JVM Version Warm Trace Example"/>
 </p>
 
 Example warm start trace for GraalVM version:
 
 <p align="center">
-  <img src="imgs/micronaut/micronaut-native-warm-trace.JPG" alt="GraalVM Version Warm Trace Example"/>
+  <img src="../imgs/micronaut/micronaut-native-warm-trace.JPG" alt="GraalVM Version Warm Trace Example"/>
 </p>
 
