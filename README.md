@@ -78,7 +78,7 @@ All latencies listed below are in milliseconds.
             <th>Quarkus</th>
             <td>6384.45</td>
             <td>6671.49</td>
-            <td>7.55.55</td>
+            <td>7055.55</td>
             <td>8303.17</td>
             <td>10.41</td>
             <td>19.07</td>
@@ -94,7 +94,7 @@ All latencies listed below are in milliseconds.
             <td>10.99</td>
             <td>21.75</td>
             <td>75.00</td>
-            <td>419.9</td>
+            <td>419.90</td>
         </tr>
 </table>
     
@@ -122,7 +122,7 @@ All latencies listed below are in milliseconds.
             <td>604.16</td>
             <td>659.02</td>
             <td>700.45</td>
-            <td>893.7</td>
+            <td>893.70</td>
             <td>6.30</td>
             <td>8.00</td>
             <td>15.88</td>
