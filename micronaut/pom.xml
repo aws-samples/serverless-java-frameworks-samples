@@ -171,15 +171,38 @@
   </build>
   <profiles>
     <profile>
-      <id>graalvm</id>
+      <id>native</id>
       <activation>
         <property>
-          <name>graalvm</name>
+          <name>native</name>
         </property>
       </activation>
       <properties>
         <exec.mainClass>io.micronaut.function.aws.runtime.MicronautLambdaRuntime</exec.mainClass>
       </properties>
+      <build>
+        <plugins>
+          <plugin>
+            <artifactId>maven-assembly-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>native-zip</id>
+                <phase>package</phase>
+                <goals>
+                  <goal>single</goal>
+                </goals>
+                <inherited>false</inherited>
+              </execution>
+            </executions>
+            <configuration>
+              <finalName>function</finalName>
+              <descriptors>
+                <descriptor>src/assembly/native.xml</descriptor>
+              </descriptors>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
     </profile>
     <profile>
       <id>jvm</id>

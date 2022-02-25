@@ -25,7 +25,11 @@ import java.util.Optional;
 @ApplicationScoped
 public class DynamoProductDao implements ProductDao {
   private static final Logger logger = LoggerFactory.getLogger(DynamoProductDao.class);
-  private static final String PRODUCT_TABLE_NAME = System.getenv("PRODUCT_TABLE_NAME");
+
+  //This field is intentionally not static final. The native image version of the code
+  //does not work if this is set to static final
+  //TODO: Investigate and fix the issue with native image
+  private String PRODUCT_TABLE_NAME = System.getenv("PRODUCT_TABLE_NAME");
 
   private final DynamoDbClient dynamoDbClient = DynamoDbClient.builder()
     .credentialsProvider(EnvironmentVariableCredentialsProvider.create())

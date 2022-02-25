@@ -7,11 +7,11 @@ Description: >
 Globals:
   Function:
     Tracing: Active
-    CodeUri: target/function.zip
+    CodeUri: target/function-native-zip.zip
     Handler: io.micronaut.function.aws.proxy.MicronautLambdaHandler
     Runtime: provided
     Timeout: 30
-    MemorySize: 512
+    MemorySize: 1024
     Environment:
       Variables:
         PRODUCT_TABLE_NAME: !Ref ProductsTable

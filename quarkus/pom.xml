@@ -19,6 +19,7 @@
     <quarkus.platform.version>2.6.3.Final</quarkus.platform.version>
     <surefire-plugin.version>3.0.0-M5</surefire-plugin.version>
     <quarkus.package.type>uber-jar</quarkus.package.type>
+    <aws.package.name>${artifactId}-${version}-aws.jar</aws.package.name>
   </properties>
   <dependencyManagement>
     <dependencies>
@@ -84,36 +85,40 @@
   </build>
   <profiles>
     <profile>
-      <id>native</id>
+      <id>jvm</id>
       <activation>
-        <property>
-          <name>native</name>
-        </property>
+        <activeByDefault>true</activeByDefault>
       </activation>
       <build>
         <plugins>
           <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-failsafe-plugin</artifactId>
-            <version>${surefire-plugin.version}</version>
+            <groupId>com.coderplus.maven.plugins</groupId>
+            <artifactId>copy-rename-maven-plugin</artifactId>
+            <version>1.0</version>
             <executions>
               <execution>
+                <id>rename-file</id>
+                <phase>package</phase>
                 <goals>
-                  <goal>integration-test</goal>
-                  <goal>verify</goal>
+                  <goal>rename</goal>
                 </goals>
                 <configuration>
-                  <systemPropertyVariables>
-                    <native.image.path>${project.build.directory}/${project.build.finalName}-runner</native.image.path>
-                    <java.util.logging.manager>org.jboss.logmanager.LogManager</java.util.logging.manager>
-                    <maven.home>${maven.home}</maven.home>
-                  </systemPropertyVariables>
+                  <sourceFile>target/function.zip</sourceFile>
+                  <destinationFile>target/${aws.package.name}</destinationFile>
                 </configuration>
               </execution>
             </executions>
           </plugin>
         </plugins>
       </build>
+    </profile>
+    <profile>
+      <id>native</id>
+      <activation>
+        <property>
+          <name>native</name>
+        </property>
+      </activation>
       <properties>
         <quarkus.package.type>native</quarkus.package.type>
         <quarkus.native.container-build>true</quarkus.native.container-build>

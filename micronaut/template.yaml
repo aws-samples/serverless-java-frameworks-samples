@@ -11,7 +11,7 @@ Globals:
     Handler: io.micronaut.function.aws.proxy.MicronautLambdaHandler
     Runtime: java11
     Timeout: 30
-    MemorySize: 512
+    MemorySize: 1024
     Environment:
       Variables:
         PRODUCT_TABLE_NAME: !Ref ProductsTable

@@ -7,11 +7,11 @@ Description: >
 Globals:
   Function:
     Tracing: Active
-    CodeUri: target/function.zip
+    CodeUri: target/quarkus-lambda-function-1.0.0-SNAPSHOT-aws.jar
     Handler: io.quarkus.amazon.lambda.runtime.QuarkusStreamHandler::handleRequest
     Runtime: java11
     Timeout: 30
-    MemorySize: 512
+    MemorySize: 1024
     Environment:
       Variables:
         PRODUCT_TABLE_NAME: !Ref ProductsTable

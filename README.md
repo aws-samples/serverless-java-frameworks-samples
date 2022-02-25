@@ -65,36 +65,36 @@ All latencies listed below are in milliseconds.
         </tr>        
         <tr>
             <th>Micronaut</th>
-            <td>11162.78</td>
-            <td>11594.91</td>
-            <td>11935.91</td>
-            <td>12281.78</td>
-            <td>9.67</td>
-            <td>29.40</td>
-            <td>89.31</td>
-            <td>1012.22</td>
+            <td>8505.57</td>
+            <td>8977.26</td>
+            <td>9685.76</td>
+            <td>10512.48</td>
+            <td>9.38</td>
+            <td>14.86</td>
+            <td>40.39</td>
+            <td>553.75</td>
         </tr>
         <tr>
             <th>Quarkus</th>
-            <td style="color: lightgreen;">10799.03</td>
-            <td style="color: lightgreen;">11263.65</td>
-            <td style="color: lightgreen;">11629.73</td>
-            <td style="color: lightgreen;">11968.59</td>
-            <td>10.64</td>
-            <td>28.48</td>
-            <td>77.42</td>
-            <td>861.7</td>
+            <td>6384.45</td>
+            <td>6671.49</td>
+            <td>7.55.55</td>
+            <td>8303.17</td>
+            <td>10.41</td>
+            <td>19.07</td>
+            <td>48.45</td>
+            <td>317.69</td>
         </tr>
         <tr>
             <th>Spring Boot</th>
-            <td>25461.64</td>
-            <td>26184.27</td>
-            <td>26712.96</td>
-            <td>27021.46</td>
-            <td>13.08</td>
-            <td>46.58</td>
-            <td>207.15</td>
-            <td>824.41</td>
+            <td>12673.61</td>
+            <td>13098.60</td>
+            <td>13497.31</td>
+            <td>14118.06</td>
+            <td>10.99</td>
+            <td>21.75</td>
+            <td>75.00</td>
+            <td>419.9</td>
         </tr>
 </table>
     
@@ -119,36 +119,36 @@ All latencies listed below are in milliseconds.
         </tr>        
         <tr>
             <th>Micronaut</th>
-            <td>679.75</td>
-            <td>739.29</td>
-            <td>797.64</td>
-            <td>854.17</td>
-            <td>6.10</td>
-            <td>7.75</td>
-            <td>14.08</td>
-            <td>215.02</td>
+            <td>604.16</td>
+            <td>659.02</td>
+            <td>700.45</td>
+            <td>893.7</td>
+            <td>6.30</td>
+            <td>8.00</td>
+            <td>15.88</td>
+            <td>69.9</td>
         </tr>
         <tr>
             <th>Quarkus</th>
-            <td>562.74</td>
-            <td>607.76</td>
-            <td>637.63</td>
-            <td>860.5</td>
-            <td>7.15</td>
-            <td>12.01</td>
-            <td>18.47</td>
-            <td>245.18</td>
+            <td>437.45</td>
+            <td>475.76</td>
+            <td>519.50</td>
+            <td>528.03</td>
+            <td>7.45</td>
+            <td>12.60</td>
+            <td>21.32</td>
+            <td>93.45</td>
         </tr>
         <tr>
             <th>Spring Boot</th>
-            <td>728.29</td>
-            <td>789.70</td>
-            <td>815.37</td>
-            <td>835.99</td>
-            <td>9.20</td>
-            <td>14.16</td>
-            <td>24.27</td>
-            <td>304.35</td>
+            <td>620.66</td>
+            <td>684.53</td>
+            <td>721.77</td>
+            <td>751.98</td>
+            <td>9.10</td>
+            <td>14.22</td>
+            <td>23.61</td>
+            <td>259.16</td>
         </tr>
 </table>
 

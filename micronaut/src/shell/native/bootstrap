@@ -1,0 +1,3 @@
+#!/bin/sh
+set -euo pipefail
+./micronaut-lambda-function -Djava.library.path=/function

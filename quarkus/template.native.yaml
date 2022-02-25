@@ -11,7 +11,7 @@ Globals:
     Handler: not.used.in.provided.runtime
     Runtime: provided
     Timeout: 30
-    MemorySize: 512
+    MemorySize: 1024
     Environment:
       Variables:
         PRODUCT_TABLE_NAME: !Ref ProductsTable

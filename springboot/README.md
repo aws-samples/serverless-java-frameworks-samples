@@ -22,8 +22,10 @@ docker run --mount type=bind,source=$(pwd),destination=/project -it --entrypoint
 
 On Windows:
 ```bash
-docker run -v ($pwd):/project -it --entrypoint /bin/bash marksailes/al2-graalvm:11-22.0.0.2
+docker run -v <SPRING_BOOT_DIR_ABSOLUTE_PATH>:/project -it --entrypoint /bin/bash marksailes/al2-graalvm:11-22.0.0.2
 ```
+Make sure to replace `SPRING_BOOT_DIR_ABSOLUTE_PATH` with absolute path to springboot directory.
+
 Once docker downloads the image and runs, you would see a bash command that will run inside docker container.
 Run below command:
 
