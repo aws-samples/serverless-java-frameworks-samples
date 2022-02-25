@@ -40,11 +40,12 @@ The sample application can be deployed in two different ways:
 [Spring Boot](springboot)
 
 ## Summary
-
-Below is the cold start and warm start latencies observed. Please refer to "Load Test" section of each sub project for more details.
+Below is the cold start and warm start latencies observed. Please refer to "Load Test" section of each sub-project for more details.
 All latencies listed below are in milliseconds.
 
-**For JVM versions of the project:**
+[Artillery](https://www.artillery.io/) is used to make **100 requests / second for 10 minutes to our API endpoints**.
+
+### Results from Managed Java Runtime
 
 <table class="table-bordered">
         <tr>
@@ -69,21 +70,21 @@ All latencies listed below are in milliseconds.
             <td>8977.26</td>
             <td>9685.76</td>
             <td>10512.48</td>
-            <td>9.38</td>
-            <td>14.86</td>
-            <td>40.39</td>
+            <td><b style="color: green">9.38</b></td>
+            <td><b style="color: green">14.86</b></td>
+            <td><b style="color: green">40.39</b></td>
             <td>553.75</td>
         </tr>
         <tr>
             <th>Quarkus</th>
-            <td>6384.45</td>
-            <td>6671.49</td>
-            <td>7055.55</td>
-            <td>8303.17</td>
+            <td><b style="color: green">6384.45</b></td>
+            <td><b style="color: green">6671.49</b></td>
+            <td><b style="color: green">7055.55</b></td>
+            <td><b style="color: green">8303.17</b></td>
             <td>10.41</td>
             <td>19.07</td>
             <td>48.45</td>
-            <td>317.69</td>
+            <td><b style="color: green">317.69</b></td>
         </tr>
         <tr>
             <th>Spring Boot</th>
@@ -97,8 +98,8 @@ All latencies listed below are in milliseconds.
             <td>419.90</td>
         </tr>
 </table>
-    
-**For GraalVM versions of the project:**
+
+### Results from GraalVM Native images running in custom runtime
 
 <table class="table-bordered">
         <tr>
@@ -123,17 +124,17 @@ All latencies listed below are in milliseconds.
             <td>659.02</td>
             <td>700.45</td>
             <td>893.70</td>
-            <td>6.30</td>
-            <td>8.00</td>
-            <td>15.88</td>
-            <td>69.9</td>
+            <td><b style="color: green">6.30</b></td>
+            <td><b style="color: green">8.00</b></td>
+            <td><b style="color: green">15.88</b></td>
+            <td><b style="color: green">69.9</b></td>
         </tr>
         <tr>
             <th>Quarkus</th>
-            <td>437.45</td>
-            <td>475.76</td>
-            <td>519.50</td>
-            <td>528.03</td>
+            <td><b style="color: green">437.45</b></td>
+            <td><b style="color: green">475.76</b></td>
+            <td><b style="color: green">519.50</b></td>
+            <td><b style="color: green">528.03</b></td>
             <td>7.45</td>
             <td>12.60</td>
             <td>21.32</td>
@@ -151,8 +152,6 @@ All latencies listed below are in milliseconds.
             <td>259.16</td>
         </tr>
 </table>
-
-
 
 ## 👀 With other languages
 
@@ -172,4 +171,3 @@ See [CONTRIBUTING](CONTRIBUTING.md#security-issue-notifications) for more inform
 ## License
 
 This library is licensed under the MIT-0 License. See the LICENSE file.
-

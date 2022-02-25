@@ -1,10 +1,10 @@
-## Serverless Micronaut Application Demo
+# Serverless Micronaut Application Demo
 
-### Deployment
+## Deployment
 
 Deploy the demo to your AWS account using [AWS SAM](https://aws.amazon.com/serverless/sam/).
 
-For deployment as a JVM package:
+### Option 1: Managed Runtime
 
 ```bash
 mvn clean package
@@ -13,7 +13,7 @@ sam deploy -g
 SAM will create an output of the API Gateway endpoint URL for future use in our load tests. 
 Make sure the app name used here matches with the `STACK_NAME` present under `load-test/run-load-test.sh`
 
-For deployment as GraalVM native image on custom runtime:
+### Option 2: GraalVM Native Image
 
 On MacOS:
 ```bash
@@ -43,17 +43,24 @@ Make sure the app name used here matches with the `STACK_NAME` present under `lo
 
 ## Load Test
 
-[Artillery](https://www.artillery.io/) is used to make 100 requests / second for 10 minutes to our API endpoints. You
-can run this with the following command.
+[Artillery](https://www.artillery.io/) is used to make 100 requests / second for 10 minutes to our API endpoints. 
 
-Load test for JVM version:
+You can run this with the following command under `load-test` directory:
 
 ```bash
 cd load-test
+```
+
+### Managed Runtime
+> Before running load tests, make sure you update the stack name in [load test bash script](./load-test/run-load-test.sh)
+
+```bash
 ./run-load-test.sh
 ```
 
-Load test for native image version:
+### Native Image
+> Before running load tests, make sure you update the stack name in [load test bash script](./load-test/run-load-test-native.sh)
+
 ```bash
 cd load-test
 ./run-load-test-native.sh
@@ -61,7 +68,7 @@ cd load-test
 
 This is a demanding load test, to change the rate alter the `arrivalRate` value in `load-test.yml`.
 
-### CloudWatch Logs Insights
+## CloudWatch Logs Insights
 
 Using this CloudWatch Logs Insights query you can analyse the latency of the requests made to the Lambda functions.
 
