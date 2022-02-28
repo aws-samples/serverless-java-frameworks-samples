@@ -62,7 +62,6 @@ cd load-test
 > Before running load tests, make sure you update the stack name in [load test bash script](./load-test/run-load-test-native.sh)
 
 ```bash
-cd load-test
 ./run-load-test-native.sh
 ```
 
