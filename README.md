@@ -16,7 +16,7 @@ functions and an [Amazon DynamoDB](https://aws.amazon.com/dynamodb/) table for s
 - Java 11
 - Maven
 - [Artillery](https://www.artillery.io/) for load-testing the application
-- Docker
+- Docker (at least 8GB memory and 4 CPUs)
 
 ## Software
 
