@@ -12,7 +12,6 @@ import software.amazonaws.example.product.entity.Product;
 
 @Controller
 public class CreateProductController {
-
   private final ProductDao productDao;
 
   public CreateProductController(ProductDao productDao) {

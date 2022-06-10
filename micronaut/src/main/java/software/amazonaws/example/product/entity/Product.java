@@ -3,14 +3,13 @@
 
 package software.amazonaws.example.product.entity;
 
-import io.micronaut.core.annotation.Introspected;
+import io.micronaut.serde.annotation.Serdeable;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
-@Introspected
+@Serdeable
 public class Product {
-
   private String id;
   private String name;
   private BigDecimal price;
