@@ -1,8 +1,0 @@
-version = 0.1
-
-[default.deploy.parameters]
-s3_bucket = "temp.***.***.com"
-region = "eu-central-1"
-capabilities = "CAPABILITY_IAM"
-stack_name = "springboot-sample-native"
-s3_prefix = "springboot-sample-native"
