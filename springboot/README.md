@@ -20,6 +20,11 @@ On MacOS:
 docker run --mount type=bind,source=$(pwd),destination=/project -it --entrypoint /bin/bash marksailes/al2-graalvm:11-22.0.0.2
 ```
 
+On MacOS ARM:
+```bash
+docker run --mount type=bind,source=$(pwd),destination=/project -it --entrypoint /bin/bash marksailes/arm64-al2-graalvm:17-22.0.0.2
+```
+
 On Windows:
 ```bash
 docker run -v <SPRING_BOOT_DIR_ABSOLUTE_PATH>:/project -it --entrypoint /bin/bash marksailes/al2-graalvm:11-22.0.0.2
@@ -37,6 +42,11 @@ exit
 Once above command completes, run:
 ```bash
 sam deploy -t template.native.yaml -g
+```
+
+If you are using MacOS ARM, run:
+```bash
+sam deploy -t template.native.arm64.yaml -g
 ```
 
 SAM will create an output of the API Gateway endpoint URL for future use in our load tests. 
