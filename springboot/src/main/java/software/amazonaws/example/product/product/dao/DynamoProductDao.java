@@ -17,7 +17,6 @@ import software.amazonaws.example.product.product.entity.Product;
 import software.amazonaws.example.product.product.entity.Products;
 import software.amazon.awssdk.http.urlconnection.UrlConnectionHttpClient;
 
-import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -28,12 +27,11 @@ public class DynamoProductDao implements ProductDao {
   private static final Logger logger = LoggerFactory.getLogger(DynamoProductDao.class);
   private static final String PRODUCT_TABLE_NAME = System.getenv("PRODUCT_TABLE_NAME");
   private final DynamoDbClient dynamoDbClient = DynamoDbClient.builder()
-//    .credentialsProvider(EnvironmentVariableCredentialsProvider.create())
-//    .region(Region.of(System.getenv(SdkSystemSetting.AWS_REGION.environmentVariable())))
+    .credentialsProvider(EnvironmentVariableCredentialsProvider.create())
+    .region(Region.of(System.getenv(SdkSystemSetting.AWS_REGION.environmentVariable())))
     .overrideConfiguration(ClientOverrideConfiguration.builder()
-//      .addExecutionInterceptor(new TracingInterceptor())
+      .addExecutionInterceptor(new TracingInterceptor())
       .build())
-    .endpointOverride(URI.create("http://host.docker.internal:4566"))
     .httpClient(UrlConnectionHttpClient.builder().build())
     .build();
 
