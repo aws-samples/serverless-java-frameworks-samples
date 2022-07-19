@@ -3,12 +3,9 @@
 
 package software.amazonaws.example.product.product.entity;
 
-import com.fasterxml.jackson.annotation.JsonAutoDetect;
-
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
-@JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
 public class Product {
   private String id;
   private String name;
