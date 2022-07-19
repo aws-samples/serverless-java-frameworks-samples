@@ -15,10 +15,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.nativex.hint.TypeHint;
-import software.amazonaws.example.product.product.handler.CreateProductFunction;
-import software.amazonaws.example.product.product.handler.DeleteProductFunction;
-import software.amazonaws.example.product.product.handler.GetAllProductsFunction;
-import software.amazonaws.example.product.product.handler.GetProductByIdFunction;
 
 import java.util.HashSet;
 
@@ -40,26 +36,6 @@ public class SpringBootSampleApplication {
 
   public static void main(String[] args) {
     SpringApplication.run(SpringBootSampleApplication.class, args);
-  }
-
-  @Bean
-  public GetAllProductsFunction getAllProducts() {
-    return new GetAllProductsFunction();
-  }
-
-  @Bean
-  public GetProductByIdFunction getProductById() {
-    return new GetProductByIdFunction();
-  }
-
-  @Bean
-  public CreateProductFunction createProduct() {
-    return new CreateProductFunction();
-  }
-
-  @Bean
-  public DeleteProductFunction deleteProduct() {
-    return new DeleteProductFunction();
   }
 
   @Bean
