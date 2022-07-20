@@ -7,12 +7,13 @@ import com.amazonaws.services.lambda.runtime.events.APIGatewayProxyRequestEvent;
 import com.amazonaws.xray.entities.TraceHeader;
 import com.amazonaws.xray.entities.TraceID;
 import com.amazonaws.xray.interceptors.TracingInterceptor;
-import com.fasterxml.jackson.databind.DeserializationFeature;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.joda.time.DateTime;
+import software.amazonaws.example.product.product.entity.Product;
+import software.amazonaws.example.product.product.entity.Products;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
+import org.springframework.nativex.hint.TypeAccess;
 import org.springframework.nativex.hint.TypeHint;
 
 import java.util.HashSet;
@@ -31,16 +32,12 @@ import java.util.HashSet;
     "com.amazonaws.services.lambda.runtime.events.APIGatewayProxyRequestEvent$RequestIdentity",
     "com.amazonaws.xray.entities.TraceHeader$SampleDecision"
   })
+@TypeHint(
+  types = { Product.class, Products.class}, access = { TypeAccess.PUBLIC_CONSTRUCTORS, TypeAccess.PUBLIC_METHODS }
+)
 public class SpringBootSampleApplication {
 
   public static void main(String[] args) {
     SpringApplication.run(SpringBootSampleApplication.class, args);
-  }
-
-  @Bean
-  public ObjectMapper defaultObjectMapper() {
-    ObjectMapper objectMapper = new ObjectMapper();
-    objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-    return objectMapper;
   }
 }
