@@ -5,7 +5,7 @@
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>2.7.1</version>
+    <version>2.7.2</version>
     <relativePath/>
   </parent>
   <groupId>software.amazonaws.example</groupId>
@@ -17,6 +17,7 @@
   <properties>
     <java.version>11</java.version>
     <spring-cloud.version>2021.0.3</spring-cloud.version>
+    <spring-native.version>0.12.1</spring-native.version>
   </properties>
   <dependencies>
     <dependency>
@@ -34,7 +35,7 @@
     <dependency>
       <groupId>org.springframework.experimental</groupId>
       <artifactId>spring-native</artifactId>
-      <version>0.12.1</version>
+      <version>${spring-native.version}</version>
     </dependency>
     <dependency>
       <groupId>com.amazonaws</groupId>
@@ -164,7 +165,7 @@
           <plugin>
             <groupId>org.springframework.experimental</groupId>
             <artifactId>spring-aot-maven-plugin</artifactId>
-            <version>0.12.1</version>
+            <version>${spring-native.version}</version>
             <executions>
               <execution>
                 <id>test-generate</id>
