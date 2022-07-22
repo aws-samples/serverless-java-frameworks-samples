@@ -12,6 +12,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import software.amazon.awssdk.http.HttpStatusCode;
 import software.amazonaws.example.product.product.dao.ProductDao;
 
+import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Component;
 
 @Component

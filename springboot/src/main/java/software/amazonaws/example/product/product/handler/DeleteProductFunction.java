@@ -5,6 +5,8 @@ package software.amazonaws.example.product.product.handler;
 
 import com.amazonaws.services.lambda.runtime.events.APIGatewayProxyRequestEvent;
 import com.amazonaws.services.lambda.runtime.events.APIGatewayProxyResponseEvent;
+
+import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Component;
 import software.amazon.awssdk.http.HttpStatusCode;
 import software.amazonaws.example.product.product.dao.ProductDao;
