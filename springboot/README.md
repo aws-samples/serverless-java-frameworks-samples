@@ -17,7 +17,7 @@ Make sure the app name used here matches with the `STACK_NAME` present under `lo
 
 On MacOS:
 ```bash
-docker run --mount type=bind,source=$(pwd),destination=/project -it --entrypoint /bin/bash marksailes/al2-graalvm:11-22.0.0.2
+docker run -v ~/.m2/repository:/root/.m2/repository --mount type=bind,source=$(pwd),destination=/project -it --entrypoint /bin/bash marksailes/al2-graalvm:11-22.0.0.2
 ```
 
 On MacOS ARM:

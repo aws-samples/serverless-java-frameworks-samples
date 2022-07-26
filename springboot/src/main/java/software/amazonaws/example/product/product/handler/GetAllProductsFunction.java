@@ -3,30 +3,25 @@
 
 package software.amazonaws.example.product.product.handler;
 
+import java.util.function.Function;
+
 import com.amazonaws.services.lambda.runtime.events.APIGatewayProxyRequestEvent;
 import com.amazonaws.services.lambda.runtime.events.APIGatewayProxyResponseEvent;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpMethod;
-import org.springframework.stereotype.Component;
 import software.amazon.awssdk.http.HttpStatusCode;
 import software.amazonaws.example.product.product.dao.ProductDao;
 
-import java.util.function.Function;
+import org.springframework.http.HttpMethod;
+import org.springframework.stereotype.Component;
 
 @Component
 public class GetAllProductsFunction implements Function<APIGatewayProxyRequestEvent, APIGatewayProxyResponseEvent> {
-  ProductDao productDao;
-  ObjectMapper objectMapper;
+  private final ProductDao productDao;
+  private final ObjectMapper objectMapper;
 
-  @Autowired
-  public void setProductDao(ProductDao productDao) {
+  public GetAllProductsFunction(ProductDao productDao, ObjectMapper objectMapper) {
     this.productDao = productDao;
-  }
-
-  @Autowired
-  public void setObjectMapper(ObjectMapper objectMapper) {
     this.objectMapper = objectMapper;
   }
 

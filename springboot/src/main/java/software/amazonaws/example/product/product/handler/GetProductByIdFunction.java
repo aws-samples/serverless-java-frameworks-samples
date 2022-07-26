@@ -6,7 +6,7 @@ package software.amazonaws.example.product.product.handler;
 import com.amazonaws.services.lambda.runtime.events.APIGatewayProxyRequestEvent;
 import com.amazonaws.services.lambda.runtime.events.APIGatewayProxyResponseEvent;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Component;
 import software.amazon.awssdk.http.HttpStatusCode;
@@ -18,16 +18,11 @@ import java.util.function.Function;
 
 @Component
 public class GetProductByIdFunction implements Function<APIGatewayProxyRequestEvent, APIGatewayProxyResponseEvent> {
-  ProductDao productDao;
-  ObjectMapper objectMapper;
+  private final ProductDao productDao;
+  private final ObjectMapper objectMapper;
 
-  @Autowired
-  public void setProductDao(ProductDao productDao) {
+  GetProductByIdFunction(ProductDao productDao, ObjectMapper objectMapper) {
     this.productDao = productDao;
-  }
-
-  @Autowired
-  public void setObjectMapper(ObjectMapper objectMapper) {
     this.objectMapper = objectMapper;
   }
 
