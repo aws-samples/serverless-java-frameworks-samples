@@ -8,7 +8,6 @@ Globals:
   Function:
     Tracing: Active
     CodeUri: target/micronaut-lambda-function-1.0.0-SNAPSHOT.jar
-    Handler: io.micronaut.function.aws.proxy.MicronautLambdaHandler
     Runtime: java11
     Timeout: 30
     MemorySize: 1024
@@ -27,6 +26,7 @@ Resources:
   GetProductByIdFunction:
     Type: AWS::Serverless::Function
     Properties:
+      Handler: software.amazonaws.example.product.handler.GetProductByIdHandler::handleRequest
       Policies:
         - DynamoDBReadPolicy:
             TableName: !Ref ProductsTable
@@ -47,6 +47,7 @@ Resources:
   GetProductsFunction:
     Type: AWS::Serverless::Function
     Properties:
+      Handler: software.amazonaws.example.product.handler.GetAllProductsHandler::handleRequest
       Policies:
         - DynamoDBReadPolicy:
             TableName: !Ref ProductsTable
@@ -67,6 +68,7 @@ Resources:
   PutProductFunction:
     Type: AWS::Serverless::Function
     Properties:
+      Handler: software.amazonaws.example.product.handler.CreateProductHandler::handleRequest
       Policies:
         - DynamoDBCrudPolicy:
             TableName: !Ref ProductsTable
@@ -87,6 +89,7 @@ Resources:
   DeleteProductFunction:
     Type: AWS::Serverless::Function
     Properties:
+      Handler: software.amazonaws.example.product.handler.DeleteProductHandler::handleRequest
       Policies:
         - DynamoDBCrudPolicy:
             TableName: !Ref ProductsTable

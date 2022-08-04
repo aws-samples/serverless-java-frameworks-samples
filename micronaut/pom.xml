@@ -2,7 +2,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>software.amazonaws.example</groupId>
+  <groupId>asoftware.amazonaws.example</groupId>
   <artifactId>micronaut-lambda-function</artifactId>
   <version>1.0.0-SNAPSHOT</version>
   <packaging>${packaging}</packaging>
@@ -10,21 +10,22 @@
   <parent>
     <groupId>io.micronaut</groupId>
     <artifactId>micronaut-parent</artifactId>
-    <version>3.5.1</version>
+    <version>3.5.3</version>
   </parent>
 
   <properties>
     <packaging>jar</packaging>
     <jdk.version>11</jdk.version>
     <release.version>11</release.version>
-    <micronaut.version>3.5.1</micronaut.version>
+    <micronaut.version>3.5.3</micronaut.version>
     <micronaut.runtime>lambda</micronaut.runtime>
+    <exec.mainClass>software.amazonaws.example.product.FunctionLambdaRuntime</exec.mainClass>
   </properties>
 
   <repositories>
     <repository>
       <id>central</id>
-      <url>https://repo.maven.apache.org/maven2</url>
+      <url>https://repo1.maven.org/maven2</url>
     </repository>
   </repositories>
 
@@ -41,7 +42,7 @@
     </dependency>
     <dependency>
       <groupId>io.micronaut.aws</groupId>
-      <artifactId>micronaut-function-aws-api-proxy</artifactId>
+      <artifactId>micronaut-function-aws</artifactId>
       <scope>compile</scope>
     </dependency>
     <dependency>
@@ -92,7 +93,20 @@
     <dependency>
       <groupId>software.amazon.awssdk</groupId>
       <artifactId>dynamodb</artifactId>
-      <scope>compile</scope>
+      <exclusions>
+        <exclusion>
+          <groupId>software.amazon.awssdk</groupId>
+          <artifactId>apache-client</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>software.amazon.awssdk</groupId>
+          <artifactId>netty-nio-client</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <dependency>
+      <groupId>software.amazon.awssdk</groupId>
+      <artifactId>url-connection-client</artifactId>
     </dependency>
     <!-- X-Ray Tracing Dependencies -->
     <dependency>
@@ -114,6 +128,11 @@
     <dependency>
       <groupId>com.amazonaws</groupId>
       <artifactId>aws-xray-recorder-sdk-aws-sdk-v2</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>io.micronaut.aws</groupId>
+      <artifactId>micronaut-function-aws</artifactId>
+      <scope>compile</scope>
     </dependency>
   </dependencies>
 
@@ -164,50 +183,5 @@
       </plugin>
     </plugins>
   </build>
-  <profiles>
-    <profile>
-      <id>native</id>
-      <activation>
-        <property>
-          <name>native</name>
-        </property>
-      </activation>
-      <properties>
-        <exec.mainClass>io.micronaut.function.aws.runtime.MicronautLambdaRuntime</exec.mainClass>
-      </properties>
-      <build>
-        <plugins>
-          <plugin>
-            <artifactId>maven-assembly-plugin</artifactId>
-            <executions>
-              <execution>
-                <id>native-zip</id>
-                <phase>package</phase>
-                <goals>
-                  <goal>single</goal>
-                </goals>
-                <inherited>false</inherited>
-              </execution>
-            </executions>
-            <configuration>
-              <finalName>function</finalName>
-              <descriptors>
-                <descriptor>src/assembly/native.xml</descriptor>
-              </descriptors>
-            </configuration>
-          </plugin>
-        </plugins>
-      </build>
-    </profile>
-    <profile>
-      <id>jvm</id>
-      <activation>
-        <activeByDefault>true</activeByDefault>
-      </activation>
-      <properties>
-        <exec.mainClass>software.amazonaws.example.product.product.Application</exec.mainClass>
-      </properties>
-    </profile>
-  </profiles>
 
 </project>

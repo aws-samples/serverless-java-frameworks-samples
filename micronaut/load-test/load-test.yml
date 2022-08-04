@@ -4,8 +4,8 @@ config:
     timeout: 60
   processor: "generator.js"
   phases:
-    - duration: 600
-      arrivalRate: 100
+    - duration: 120
+      arrivalRate: 50
 
 scenarios:
   - name: "Generate products"

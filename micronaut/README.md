@@ -15,23 +15,8 @@ Make sure the app name used here matches with the `STACK_NAME` present under `lo
 
 ### Option 2: GraalVM Native Image
 
-On MacOS:
 ```bash
-docker run --mount type=bind,source=$(pwd),destination=/project -it --entrypoint /bin/bash marksailes/al2-graalvm:11-22.0.0.2
-```
-
-On Windows:
-```bash
-docker run -v <MICRONAUT_DIR_ABSOLUTE_PATH>:/project -it --entrypoint /bin/bash marksailes/al2-graalvm:11-22.0.0.2
-```
-Make sure to replace `MICRONAUT_DIR_ABSOLUTE_PATH` with absolute path to micronaut directory.
- 
-Once docker downloads the image and runs, you would see a bash command that will run inside docker container.
-Run below command:
-
-```bash
-mvn clean package -Dpackaging=native-image -Pnative
-exit
+mvn clean package -Dpackaging=docker-native -Dmicronaut.runtime=lambda -Pgraalvm
 ```
 
 Once above command completes, run:
