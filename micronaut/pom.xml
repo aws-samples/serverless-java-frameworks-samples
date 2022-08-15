@@ -129,11 +129,6 @@
       <groupId>com.amazonaws</groupId>
       <artifactId>aws-xray-recorder-sdk-aws-sdk-v2</artifactId>
     </dependency>
-    <dependency>
-      <groupId>io.micronaut.aws</groupId>
-      <artifactId>micronaut-function-aws</artifactId>
-      <scope>compile</scope>
-    </dependency>
   </dependencies>
 
   <dependencyManagement>
