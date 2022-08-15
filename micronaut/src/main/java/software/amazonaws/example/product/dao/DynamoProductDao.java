@@ -26,11 +26,7 @@ import java.util.Optional;
 public class DynamoProductDao implements ProductDao {
   private static final Logger logger = LoggerFactory.getLogger(DynamoProductDao.class);
   private static final String PRODUCT_TABLE_NAME = System.getenv("PRODUCT_TABLE_NAME");
-  private final DynamoDbClient dynamoDbClient;
-
-  public DynamoProductDao() {
-    logger.warn("Reached constructor here");
-    dynamoDbClient =  DynamoDbClient.builder()
+  private static final DynamoDbClient dynamoDbClient = DynamoDbClient.builder()
       .credentialsProvider(EnvironmentVariableCredentialsProvider.create())
       .region(Region.of(System.getenv(SdkSystemSetting.AWS_REGION.environmentVariable())))
       .httpClientBuilder(UrlConnectionHttpClient.builder())
@@ -38,8 +34,6 @@ public class DynamoProductDao implements ProductDao {
         .addExecutionInterceptor(new TracingInterceptor())
         .build())
       .build();
-  }
-
 
   @Override
   public Optional<Product> getProduct(String id) {
