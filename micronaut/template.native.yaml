@@ -7,8 +7,7 @@ Description: >
 Globals:
   Function:
     Tracing: Active
-    CodeUri: target/function-native-zip.zip
-    Handler: io.micronaut.function.aws.proxy.MicronautLambdaHandler
+    CodeUri: target/function.zip
     Runtime: provided
     Timeout: 30
     MemorySize: 1024
@@ -26,6 +25,7 @@ Resources:
   GetProductByIdFunction:
     Type: AWS::Serverless::Function
     Properties:
+      Handler: software.amazonaws.example.product.handler.GetProductByIdHandler
       Policies:
         - DynamoDBReadPolicy:
             TableName: !Ref ProductsTable
@@ -40,6 +40,7 @@ Resources:
   GetProductsFunction:
     Type: AWS::Serverless::Function
     Properties:
+      Handler: software.amazonaws.example.product.handler.GetAllProductsHandler
       Policies:
         - DynamoDBReadPolicy:
             TableName: !Ref ProductsTable
@@ -54,6 +55,7 @@ Resources:
   PutProductFunction:
     Type: AWS::Serverless::Function
     Properties:
+      Handler: software.amazonaws.example.product.handler.CreateProductHandler
       Policies:
         - DynamoDBCrudPolicy:
             TableName: !Ref ProductsTable
@@ -68,6 +70,7 @@ Resources:
   DeleteProductFunction:
     Type: AWS::Serverless::Function
     Properties:
+      Handler: software.amazonaws.example.product.handler.DeleteProductHandler
       Policies:
         - DynamoDBCrudPolicy:
             TableName: !Ref ProductsTable

@@ -10,6 +10,7 @@ import org.slf4j.LoggerFactory;
 import software.amazon.awssdk.auth.credentials.EnvironmentVariableCredentialsProvider;
 import software.amazon.awssdk.core.SdkSystemSetting;
 import software.amazon.awssdk.core.client.config.ClientOverrideConfiguration;
+import software.amazon.awssdk.http.urlconnection.UrlConnectionHttpClient;
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.dynamodb.DynamoDbClient;
 import software.amazon.awssdk.services.dynamodb.model.*;
@@ -25,14 +26,14 @@ import java.util.Optional;
 public class DynamoProductDao implements ProductDao {
   private static final Logger logger = LoggerFactory.getLogger(DynamoProductDao.class);
   private static final String PRODUCT_TABLE_NAME = System.getenv("PRODUCT_TABLE_NAME");
-
   private static final DynamoDbClient dynamoDbClient = DynamoDbClient.builder()
-    .credentialsProvider(EnvironmentVariableCredentialsProvider.create())
-    .region(Region.of(System.getenv(SdkSystemSetting.AWS_REGION.environmentVariable())))
-    .overrideConfiguration(ClientOverrideConfiguration.builder()
-      .addExecutionInterceptor(new TracingInterceptor())
-      .build())
-    .build();
+      .credentialsProvider(EnvironmentVariableCredentialsProvider.create())
+      .region(Region.of(System.getenv(SdkSystemSetting.AWS_REGION.environmentVariable())))
+      .httpClientBuilder(UrlConnectionHttpClient.builder())
+      .overrideConfiguration(ClientOverrideConfiguration.builder()
+        .addExecutionInterceptor(new TracingInterceptor())
+        .build())
+      .build();
 
   @Override
   public Optional<Product> getProduct(String id) {

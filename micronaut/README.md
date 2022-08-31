@@ -15,23 +15,8 @@ Make sure the app name used here matches with the `STACK_NAME` present under `lo
 
 ### Option 2: GraalVM Native Image
 
-On MacOS:
 ```bash
-docker run --mount type=bind,source=$(pwd),destination=/project -it --entrypoint /bin/bash marksailes/al2-graalvm:11-22.0.0.2
-```
-
-On Windows:
-```bash
-docker run -v <MICRONAUT_DIR_ABSOLUTE_PATH>:/project -it --entrypoint /bin/bash marksailes/al2-graalvm:11-22.0.0.2
-```
-Make sure to replace `MICRONAUT_DIR_ABSOLUTE_PATH` with absolute path to micronaut directory.
- 
-Once docker downloads the image and runs, you would see a bash command that will run inside docker container.
-Run below command:
-
-```bash
-mvn clean package -Dpackaging=native-image -Pnative
-exit
+mvn clean package -Dpackaging=docker-native -Dmicronaut.runtime=lambda -Pgraalvm
 ```
 
 Once above command completes, run:
@@ -74,10 +59,10 @@ Using this CloudWatch Logs Insights query you can analyse the latency of the req
 The query separates cold starts from other requests and then gives you p50, p90 and p99 percentiles.
 
 ```
-filter @type="REPORT"
+
+```filter @type="REPORT"
 | fields greatest(@initDuration, 0) + @duration as duration, ispresent(@initDuration) as coldStart
 | stats count(*) as count, pct(duration, 50) as p50, pct(duration, 90) as p90, pct(duration, 99) as p99, max(duration) as max by coldStart
-```
 
 Latency for JVM version:
 <p align="center">
