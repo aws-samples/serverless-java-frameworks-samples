@@ -39,6 +39,8 @@ The sample application can be deployed in two different ways:
 
 [Spring Boot](springboot)
 
+[Dagger](dagger)
+
 ## Summary
 Below is the cold start and warm start latencies observed. Please refer to "Load Test" section of each sub-project for more details.
 All latencies listed below are in milliseconds.
@@ -98,7 +100,7 @@ All latencies listed below are in milliseconds.
             <td>319.69</td>
         </tr>
         <tr>
-            <th>Dagger</th>
+            <th>Dagger *</th>
             <td><b style="color: green">3213.0091</b></td>
             <td><b style="color: green">3629.6889</b></td>
             <td><b style="color: green">4850.1132</b></td>
@@ -109,6 +111,9 @@ All latencies listed below are in milliseconds.
             <td><b style="color: green">292.2</b></td>
         </tr>
 </table>
+*: Dagger is not fully comparable to other frameworks as it only provides dependency injection, and thus is much lighter than the others, which explains these results.
+When choosing a framework, be conscious of the features available. Dagger was initially done with Android in mind, to provide a lightweight dependency injection framework, without introspection (like Spring). 
+It fits particularly well with Lambda to reduce the initialization time, but does not provide the breadth of the others.
 
 ### Results from GraalVM Native images running in custom runtime
 
