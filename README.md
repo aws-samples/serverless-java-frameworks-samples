@@ -39,6 +39,8 @@ The sample application can be deployed in two different ways:
 
 [Spring Boot](springboot)
 
+[Dagger](dagger)
+
 ## Summary
 Below is the cold start and warm start latencies observed. Please refer to "Load Test" section of each sub-project for more details.
 All latencies listed below are in milliseconds.
@@ -66,38 +68,52 @@ All latencies listed below are in milliseconds.
         </tr>        
         <tr>
             <th>Micronaut</th>
-            <td>8505.57</td>
-            <td>8977.26</td>
-            <td>9685.76</td>
-            <td>10512.48</td>
-            <td><b style="color: green">9.38</b></td>
-            <td><b style="color: green">14.86</b></td>
-            <td><b style="color: green">40.39</b></td>
-            <td>553.75</td>
+            <td>4898.8332</td>
+            <td>5479.1013</td>
+            <td>7551.7604</td>
+            <td>10147.71</td>
+            <td>9.3759</td>
+            <td>17.1385</td>
+            <td>42.356</td>
+            <td>531.75</td>
         </tr>
         <tr>
             <th>Quarkus</th>
-            <td><b style="color: green">6384.45</b></td>
-            <td><b style="color: green">6671.49</b></td>
-            <td><b style="color: green">7055.55</b></td>
-            <td><b style="color: green">8303.17</b></td>
-            <td>10.41</td>
-            <td>19.07</td>
-            <td>48.45</td>
-            <td><b style="color: green">317.69</b></td>
+            <td>3808.0718</td>
+            <td>4229.4438</td>
+            <td>5501.0506</td>
+            <td>7195.38</td>
+            <td><b style="color: green">8.6605</b></td>
+            <td><b style="color: green">15.3362</b></td>
+            <td><b style="color: green">38.5082</b></td>
+            <td>375.65</td>
         </tr>
         <tr>
             <th>Spring Boot</th>
-            <td>12673.61</td>
-            <td>13098.60</td>
-            <td>13497.31</td>
-            <td>14118.06</td>
-            <td>10.99</td>
-            <td>21.75</td>
-            <td>75.00</td>
-            <td>419.90</td>
+            <td>5517.570</td>
+            <td>6442.1359</td>
+            <td>8616.8082</td>
+            <td>11551.01</td>
+            <td>9.3759</td>
+            <td>16.8686</td>
+            <td>40.3863</td>
+            <td>319.69</td>
+        </tr>
+        <tr>
+            <th>Dagger *</th>
+            <td><b style="color: green">3213.0091</b></td>
+            <td><b style="color: green">3629.6889</b></td>
+            <td><b style="color: green">4850.1132</b></td>
+            <td><b style="color: green">6896.54</b></td>
+            <td>8.9399</td>
+            <td>16.3415</td>
+            <td>40.3863</td>
+            <td><b style="color: green">292.2</b></td>
         </tr>
 </table>
+*: Dagger is not fully comparable to other frameworks as it only provides dependency injection, and thus is much lighter than the others, which explains these results.
+When choosing a framework, be conscious of the features available. Dagger was initially done with Android in mind, to provide a lightweight dependency injection framework, without introspection (like Spring). 
+It fits particularly well with Lambda to reduce the initialization time, but does not provide the breadth of the others.
 
 ### Results from GraalVM Native images running in custom runtime
 
