@@ -7,7 +7,6 @@ import com.amazonaws.xray.interceptors.TracingInterceptor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
-import software.amazon.awssdk.auth.credentials.EnvironmentVariableCredentialsProvider;
 import software.amazon.awssdk.core.SdkSystemSetting;
 import software.amazon.awssdk.core.client.config.ClientOverrideConfiguration;
 import software.amazon.awssdk.regions.Region;
@@ -27,7 +26,6 @@ public class DynamoProductDao implements ProductDao {
   private static final Logger logger = LoggerFactory.getLogger(DynamoProductDao.class);
   private static final String PRODUCT_TABLE_NAME = System.getenv("PRODUCT_TABLE_NAME");
   private final DynamoDbClient dynamoDbClient = DynamoDbClient.builder()
-    .credentialsProvider(EnvironmentVariableCredentialsProvider.create())
     .region(Region.of(System.getenv(SdkSystemSetting.AWS_REGION.environmentVariable())))
     .overrideConfiguration(ClientOverrideConfiguration.builder()
       .addExecutionInterceptor(new TracingInterceptor())
