@@ -4,7 +4,7 @@
 
 Deploy the demo to your AWS account using [AWS SAM](https://aws.amazon.com/serverless/sam/).
 
-### Option 1: Managed Runtime
+### Option 1: Managed Java Runtime (without SnapStart)
 
 ```bash
 mvn clean package
@@ -13,7 +13,19 @@ sam deploy -g
 SAM will create an output of the API Gateway endpoint URL for future use in our load tests. 
 Make sure the app name used here matches with the `STACK_NAME` present under `load-test/run-load-test.sh`
 
-### Option 2: GraalVM Native Image
+### Option 2: Managed Java Runtime (with SnapStart)
+
+```bash
+mvn clean package
+sam deploy -t template.snapstart.yaml -g
+```
+SAM will create an output of the API Gateway endpoint URL for future use in our load tests.
+Make sure the app name used here matches with the `STACK_NAME` present under `load-test/run-load-test-sanpstart.sh`
+
+The SnapStart version uses a technique called Priming to optimize Lambda initialization time.
+You can learn more about SnapStart and Priming [here](https://aws.amazon.com/blogs/compute/reducing-java-cold-starts-on-aws-lambda-functions-with-snapstart/).
+
+### Option 3: GraalVM Native Image with Custom Runtime
 
 On MacOS:
 ```bash
@@ -52,18 +64,6 @@ sam deploy -t template.native.arm64.yaml -g
 SAM will create an output of the API Gateway endpoint URL for future use in our load tests. 
 Make sure the app name used here matches with the `STACK_NAME` present under `load-test/run-load-test-native.sh`
 
-### Option 3: SnapStart
-
-```bash
-mvn clean package
-sam deploy -t template.snapstart.yaml -g
-```
-SAM will create an output of the API Gateway endpoint URL for future use in our load tests.
-Make sure the app name used here matches with the `STACK_NAME` present under `load-test/run-load-test-sanpstart.sh`
-
-The SnapStart version uses a technique called Priming to optimize Lambda initialization time.
-You can learn more about SnapStart and Priming [here](https://aws.amazon.com/blogs/compute/reducing-java-cold-starts-on-aws-lambda-functions-with-snapstart/).
-
 ## Load Test
 
 [Artillery](https://www.artillery.io/) is used to make 100 requests / second for 10 minutes to our API endpoints. You
@@ -99,7 +99,8 @@ This is a demanding load test, to change the rate alter the `arrivalRate` value 
 Using this CloudWatch Logs Insights query you can analyse the latency of the requests made to the Lambda functions.
 
 The query separates cold starts from other requests and then gives you p50, p90 and p99 percentiles. 
-Please note that this query is not applicable to SnapStart version. 
+
+>:warning: Please note that this query is not applicable to SnapStart version. 
 
 ```
 filter @type="REPORT"
@@ -155,6 +156,7 @@ filter @message like "REPORT"
 You can add additional detail to your X-Ray tracing by adding a TracingInterceptor to your AWS SDK clients.
 
 Please note that AWS Lambda SnapStart currently does not support X-ray tracing. For this reason, tracing is disabled for all lambda functions in SnapStart version.
+Lambda SnapStart is available in the US East (Ohio, N. Virginia), US West (Oregon), Asia Pacific (Singapore, Sydney, Tokyo), and Europe (Frankfurt, Ireland, Stockholm) Regions.
 
 Example cold start trace for JVM version:
 

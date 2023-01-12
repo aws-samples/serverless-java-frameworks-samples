@@ -24,7 +24,8 @@ public class PrimingResource implements Resource {
   @Override
   public void beforeCheckpoint(Context<? extends Resource> context) throws Exception {
     System.out.println("beforeCheckpoint hook");
-    productDao.getAllProduct();
+    //This call to getProduct will initialize the AWS DynamoDb SDK before the snapshot is taken. This technique is called Priming.
+    productDao.getProduct("1");
   }
 
   @Override
