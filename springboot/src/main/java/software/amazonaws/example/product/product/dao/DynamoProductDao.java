@@ -69,7 +69,6 @@ public class DynamoProductDao implements ProductDao {
       .tableName(PRODUCT_TABLE_NAME)
       .limit(20)
       .build());
-
     logger.info("Scan returned: {} item(s)", scanResponse.count());
 
     List<Product> productList = new ArrayList<>();
@@ -80,4 +79,11 @@ public class DynamoProductDao implements ProductDao {
 
     return new Products(productList);
   }
+
+  public void describeTable() {
+    DescribeTableResponse response = dynamoDbClient.describeTable(DescribeTableRequest.builder()
+      .tableName(PRODUCT_TABLE_NAME)
+      .build());
+  }
+
 }
