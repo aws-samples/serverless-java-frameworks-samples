@@ -26,9 +26,10 @@ and the storage logic.
 
 ## Infrastructure
 
-The sample application can be deployed in two different ways:
-1. JVM - This mode uses zip packaging style and runs on the JVM inside the Lambda environment.
-2. Custom Runtime - This mode uses GraalVM native image and uses Custom Runtime to run on Lambda. 
+The sample application can be deployed in three different ways:
+1. Managed Java Runtime (without SnapStart) - This mode uses zip packaging style and runs on the JVM inside the Lambda environment.
+2. Managed Java Runtime (with SnapStart) - This mode enables SnapStart on the Lambda functions. Current examples only include Spring boot version of the application. Stay tuned for other framework examples with SnapStart. Learn more about SnapStart [here](https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html).
+3. Custom Runtime - This mode uses GraalVM native image and uses Custom Runtime to run on Lambda. 
    GraalVM native image is a stand-alone execution binary and does not require a JVM to run.
 
 ## Deployment and Testing
@@ -47,7 +48,7 @@ All latencies listed below are in milliseconds.
 
 [Artillery](https://www.artillery.io/) is used to make **100 requests / second for 10 minutes to our API endpoints**.
 
-### Results from Managed Java Runtime
+### Results from Managed Java Runtime without SnapStart
 
 <table class="table-bordered">
         <tr>
@@ -114,6 +115,39 @@ All latencies listed below are in milliseconds.
 *: Dagger is not fully comparable to other frameworks as it only provides dependency injection, and thus is much lighter than the others, which explains these results.
 When choosing a framework, be conscious of the features available. Dagger was initially done with Android in mind, to provide a lightweight dependency injection framework, without introspection (like Spring). 
 It fits particularly well with Lambda to reduce the initialization time, but does not provide the breadth of the others.
+
+### Results from Managed Java Runtime with SnapStart enabled Lambda functions
+
+<table class="table-bordered">
+        <tr>
+            <th colspan="1" style="horizontal-align : middle;text-align:center;"></th>
+            <th colspan="4" style="horizontal-align : middle;text-align:center;">Cold Start (ms)</th>
+            <th colspan="4" style="horizontal-align : middle;text-align:center;">Warm Start (ms)</th>           
+        </tr>
+        <tr>
+            <th></th>
+            <th scope="col">p50</th>
+            <th scope="col">p90</th>
+            <th scope="col">p99</th>
+            <th scope="col">max</th>
+            <th scope="col">p50</th>
+            <th scope="col">p90</th>
+            <th scope="col">p99</th>
+            <th scope="col">max</th>
+        </tr>        
+        <tr>
+            <th>Spring Boot</th>
+            <td>767.15</td>
+            <td>868.37</td>
+            <td>978.05</td>
+            <td>1271.93</td>
+            <td>8.07</td>
+            <td>13.65</td>
+            <td>28.41</td>
+            <td>226.37</td>
+        </tr>
+</table>
+
 
 ### Results from GraalVM Native images running in custom runtime
 
