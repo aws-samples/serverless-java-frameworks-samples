@@ -20,7 +20,7 @@ functions and an [Amazon DynamoDB](https://aws.amazon.com/dynamodb/) table for s
 
 ## Software
 
-Each of the sub folders contains a Products maven project. Each maven project contains all the code for all four
+Each of the sub folders contains a Products Maven project. Each Maven project contains all the code for all four
 Lambda functions. It uses the hexagonal architecture pattern to decouple the entry points, from the main domain logic
 and the storage logic.
 
@@ -28,7 +28,8 @@ and the storage logic.
 
 The sample application can be deployed in three different ways:
 1. Managed Java Runtime (without SnapStart) - This mode uses zip packaging style and runs on the JVM inside the Lambda environment.
-2. Managed Java Runtime (with SnapStart) - This mode enables SnapStart on the Lambda functions. Current examples only include Spring boot version of the application. Stay tuned for other framework examples with SnapStart. Learn more about SnapStart [here](https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html).
+2. Managed Java Runtime (with SnapStart) - This mode enables SnapStart on the Lambda functions. Current examples only include Spring Boot and Quarkus versions of the application.
+Stay tuned for other framework examples with SnapStart. Learn more about SnapStart [here](https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html).
 3. Custom Runtime - This mode uses GraalVM native image and uses Custom Runtime to run on Lambda. 
    GraalVM native image is a stand-alone execution binary and does not require a JVM to run.
 
@@ -134,7 +135,18 @@ It fits particularly well with Lambda to reduce the initialization time, but doe
             <th scope="col">p90</th>
             <th scope="col">p99</th>
             <th scope="col">max</th>
-        </tr>        
+        </tr>
+        <tr>
+            <th>Quarkus</th>
+            <td><b style="color: green">367.9866</b></td>
+            <td><b style="color: green">413.6367</b></td>
+            <td><b style="color: green">517.4309</b></td>
+            <td><b style="color: green">573.76</b></td>
+            <td><b style="color: green">6.662</b></td>
+            <td><b style="color: green">11.272</b></td>
+            <td><b style="color: green">21.6653</b></td>
+            <td>228.24</td>
+        </tr>
         <tr>
             <th>Spring Boot</th>
             <td>767.15</td>
@@ -144,7 +156,7 @@ It fits particularly well with Lambda to reduce the initialization time, but doe
             <td>8.07</td>
             <td>13.65</td>
             <td>28.41</td>
-            <td>226.37</td>
+            <td><b style="color: green">226.37</b></td>
         </tr>
 </table>
 
