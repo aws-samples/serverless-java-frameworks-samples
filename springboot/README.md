@@ -120,9 +120,9 @@ Latency for GraalVM version:
 </p>
 
 Latency for SnapStart version:
-AWS Lambda service logs Restoration time differently when compared to cold start times in CloudWatch logs. 
-For this reason, we need different log insights queries to capture performance metrics for SnapStart functions. 
-Also, it's easy to get Cold Start and Warm Start performance metrics with two different queries rather than one. 
+AWS Lambda service logs Restoration time differently compared to cold start times in CloudWatch Logs. For this
+reason, we need different CloudWatch Logs Insights queries to capture performance metrics for SnapStart functions.
+Also, it's easier to get cold and warm start performance metrics with two different queries rather than one.
 
 Use the below query to get Cold start metrics for with SnapStart Lambda functions:
 

@@ -13,13 +13,14 @@
     <maven.compiler.source>11</maven.compiler.source>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <quarkus-plugin.version>2.6.3.Final</quarkus-plugin.version>
+    <quarkus-plugin.version>2.16.1.Final</quarkus-plugin.version>
     <quarkus.platform.artifact-id>quarkus-bom</quarkus.platform.artifact-id>
     <quarkus.platform.group-id>io.quarkus</quarkus.platform.group-id>
-    <quarkus.platform.version>2.6.3.Final</quarkus.platform.version>
+    <quarkus.platform.version>2.16.1.Final</quarkus.platform.version>
     <surefire-plugin.version>3.0.0-M5</surefire-plugin.version>
     <quarkus.package.type>uber-jar</quarkus.package.type>
     <aws.package.name>${artifactId}-${version}-aws.jar</aws.package.name>
+    <aws.sdk2.version>2.17.131</aws.sdk2.version>
   </properties>
   <dependencyManagement>
     <dependencies>
@@ -33,7 +34,7 @@
       <dependency>
         <groupId>software.amazon.awssdk</groupId>
         <artifactId>bom</artifactId>
-        <version>2.17.131</version>
+        <version>${aws.sdk2.version}</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
@@ -51,6 +52,20 @@
     <dependency>
       <groupId>software.amazon.awssdk</groupId>
       <artifactId>dynamodb</artifactId>
+      <exclusions>
+        <exclusion>
+          <groupId>software.amazon.awssdk</groupId>
+          <artifactId>apache-client</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>software.amazon.awssdk</groupId>
+          <artifactId>netty-nio-client</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>commons-logging</groupId>
+          <artifactId>commons-logging</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
     <dependency>
       <groupId>software.amazon.awssdk</groupId>
@@ -122,8 +137,11 @@
       <properties>
         <quarkus.package.type>native</quarkus.package.type>
         <quarkus.native.container-build>true</quarkus.native.container-build>
+        <quarkus.native.builder-image>
+          quay.io/quarkus/ubi-quarkus-graalvmce-builder-image:22.3.1-java11
+        </quarkus.native.builder-image>
         <quarkus.native.additional-build-args>
-          --initialize-at-run-time=software.amazon.awssdk.services.dynamodb.DynamoDbRetryPolicy\,org.apache.http.impl.auth.NTLMEngineImpl
+          --initialize-at-run-time=software.amazon.awssdk.services.dynamodb.DynamoDbRetryPolicy\,org.apache.http.impl.auth.NTLMEngineImpl\,software.amazonaws.example.product.product.dao.DynamoProductDao
         </quarkus.native.additional-build-args>
       </properties>
     </profile>

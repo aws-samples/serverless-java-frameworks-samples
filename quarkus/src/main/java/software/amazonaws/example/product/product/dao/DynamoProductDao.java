@@ -6,13 +6,20 @@ package software.amazonaws.example.product.product.dao;
 import com.amazonaws.xray.interceptors.TracingInterceptor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import software.amazon.awssdk.auth.credentials.EnvironmentVariableCredentialsProvider;
+import software.amazon.awssdk.auth.credentials.DefaultCredentialsProvider;
 import software.amazon.awssdk.core.SdkSystemSetting;
 import software.amazon.awssdk.core.client.config.ClientOverrideConfiguration;
 import software.amazon.awssdk.http.urlconnection.UrlConnectionHttpClient;
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.dynamodb.DynamoDbClient;
-import software.amazon.awssdk.services.dynamodb.model.*;
+import software.amazon.awssdk.services.dynamodb.model.AttributeValue;
+import software.amazon.awssdk.services.dynamodb.model.DeleteItemRequest;
+import software.amazon.awssdk.services.dynamodb.model.DescribeTableRequest;
+import software.amazon.awssdk.services.dynamodb.model.GetItemRequest;
+import software.amazon.awssdk.services.dynamodb.model.GetItemResponse;
+import software.amazon.awssdk.services.dynamodb.model.PutItemRequest;
+import software.amazon.awssdk.services.dynamodb.model.ScanRequest;
+import software.amazon.awssdk.services.dynamodb.model.ScanResponse;
 import software.amazonaws.example.product.product.entity.Product;
 import software.amazonaws.example.product.product.entity.Products;
 
@@ -25,20 +32,21 @@ import java.util.Optional;
 @ApplicationScoped
 public class DynamoProductDao implements ProductDao {
   private static final Logger logger = LoggerFactory.getLogger(DynamoProductDao.class);
-
-  //This field is intentionally not static final. The native image version of the code
-  //does not work if this is set to static final
-  //TODO: Investigate and fix the issue with native image
-  private String PRODUCT_TABLE_NAME = System.getenv("PRODUCT_TABLE_NAME");
-
-  private final DynamoDbClient dynamoDbClient = DynamoDbClient.builder()
-    .credentialsProvider(EnvironmentVariableCredentialsProvider.create())
-    .region(Region.of(System.getenv(SdkSystemSetting.AWS_REGION.environmentVariable())))
-    .httpClient(UrlConnectionHttpClient.builder().build())
-    .overrideConfiguration(ClientOverrideConfiguration.builder()
-      .addExecutionInterceptor(new TracingInterceptor())
-      .build())
-    .build();
+  private static final String PRODUCT_TABLE_NAME = System.getenv("PRODUCT_TABLE_NAME");
+  private static final DynamoDbClient dynamoDbClient;
+  static {
+    dynamoDbClient = DynamoDbClient.builder()
+      .credentialsProvider(DefaultCredentialsProvider.create())
+      .region(Region.of(System.getenv(SdkSystemSetting.AWS_REGION.environmentVariable())))
+      .httpClient(UrlConnectionHttpClient.builder().build())
+      .overrideConfiguration(ClientOverrideConfiguration.builder()
+        .addExecutionInterceptor(new TracingInterceptor())
+        .build())
+      .build();
+    dynamoDbClient.describeTable(DescribeTableRequest.builder()
+      .tableName(PRODUCT_TABLE_NAME)
+      .build());
+  }
 
   @Override
   public Optional<Product> getProduct(String id) {
@@ -78,9 +86,7 @@ public class DynamoProductDao implements ProductDao {
       .build());
 
     logger.info("Scan returned: {} item(s)", scanResponse.count());
-
     List<Product> productList = new ArrayList<>();
-
     for (Map<String, AttributeValue> item : scanResponse.items()) {
       productList.add(ProductMapper.productFromDynamoDB(item));
     }

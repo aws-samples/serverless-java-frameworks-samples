@@ -20,7 +20,7 @@ functions and an [Amazon DynamoDB](https://aws.amazon.com/dynamodb/) table for s
 
 ## Software
 
-Each of the sub folders contains a Products maven project. Each maven project contains all the code for all four
+Each of the sub folders contains a Products Maven project. Each Maven project contains all the code for all four
 Lambda functions. It uses the hexagonal architecture pattern to decouple the entry points, from the main domain logic
 and the storage logic.
 
@@ -28,7 +28,8 @@ and the storage logic.
 
 The sample application can be deployed in three different ways:
 1. Managed Java Runtime (without SnapStart) - This mode uses zip packaging style and runs on the JVM inside the Lambda environment.
-2. Managed Java Runtime (with SnapStart) - This mode enables SnapStart on the Lambda functions. Current examples only include Spring boot version of the application. Stay tuned for other framework examples with SnapStart. Learn more about SnapStart [here](https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html).
+2. Managed Java Runtime (with SnapStart) - This mode enables SnapStart on the Lambda functions. Current examples only include Spring Boot and Quarkus versions of the application.
+Stay tuned for other framework examples with SnapStart. Learn more about SnapStart [here](https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html).
 3. Custom Runtime - This mode uses GraalVM native image and uses Custom Runtime to run on Lambda. 
    GraalVM native image is a stand-alone execution binary and does not require a JVM to run.
 
@@ -80,14 +81,14 @@ All latencies listed below are in milliseconds.
         </tr>
         <tr>
             <th>Quarkus</th>
-            <td>3808.0718</td>
-            <td>4229.4438</td>
-            <td>5501.0506</td>
-            <td>7195.38</td>
-            <td><b style="color: green">8.6605</b></td>
-            <td><b style="color: green">15.3362</b></td>
-            <td><b style="color: green">38.5082</b></td>
-            <td>375.65</td>
+            <td><b style="color: green">2858.4124</b></td>
+            <td><b style="color: green">2980.96</b></td>
+            <td><b style="color: green">3310.8102</b></td>
+            <td><b style="color: green">4639.79</b></td>
+            <td><b style="color: green">7.3891</b></td>
+            <td><b style="color: green">12.1101</b></td>
+            <td><b style="color: green">25.0066</b></td>
+            <td><b style="color: green">231.03</b></td>
         </tr>
         <tr>
             <th>Spring Boot</th>
@@ -102,14 +103,14 @@ All latencies listed below are in milliseconds.
         </tr>
         <tr>
             <th>Dagger *</th>
-            <td><b style="color: green">3213.0091</b></td>
-            <td><b style="color: green">3629.6889</b></td>
-            <td><b style="color: green">4850.1132</b></td>
-            <td><b style="color: green">6896.54</b></td>
+            <td>3213.0091</td>
+            <td>3629.6889</td>
+            <td>4850.1132</td>
+            <td>6896.54</td>
             <td>8.9399</td>
             <td>16.3415</td>
             <td>40.3863</td>
-            <td><b style="color: green">292.2</b></td>
+            <td>292.2</td>
         </tr>
 </table>
 *: Dagger is not fully comparable to other frameworks as it only provides dependency injection, and thus is much lighter than the others, which explains these results.
@@ -134,7 +135,18 @@ It fits particularly well with Lambda to reduce the initialization time, but doe
             <th scope="col">p90</th>
             <th scope="col">p99</th>
             <th scope="col">max</th>
-        </tr>        
+        </tr>
+        <tr>
+            <th>Quarkus</th>
+            <td><b style="color: green">367.9866</b></td>
+            <td><b style="color: green">413.6367</b></td>
+            <td><b style="color: green">517.4309</b></td>
+            <td><b style="color: green">573.76</b></td>
+            <td><b style="color: green">6.662</b></td>
+            <td><b style="color: green">11.272</b></td>
+            <td><b style="color: green">21.6653</b></td>
+            <td>228.24</td>
+        </tr>
         <tr>
             <th>Spring Boot</th>
             <td>767.15</td>
@@ -144,7 +156,7 @@ It fits particularly well with Lambda to reduce the initialization time, but doe
             <td>8.07</td>
             <td>13.65</td>
             <td>28.41</td>
-            <td>226.37</td>
+            <td><b style="color: green">226.37</b></td>
         </tr>
 </table>
 

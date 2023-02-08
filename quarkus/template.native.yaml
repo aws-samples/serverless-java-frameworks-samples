@@ -105,5 +105,5 @@ Resources:
 
 Outputs:
   ApiEndpoint:
-    Description: "API Gateway endpoint URL for Prod stage for Springboot sample function"
+    Description: "API Gateway endpoint URL for Prod stage for Quarkus sample function"
     Value: !Sub "https://${MyApi}.execute-api.${AWS::Region}.amazonaws.com/prod/products"
