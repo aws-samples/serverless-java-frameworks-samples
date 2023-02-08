@@ -81,14 +81,14 @@ All latencies listed below are in milliseconds.
         </tr>
         <tr>
             <th>Quarkus</th>
-            <td>3808.0718</td>
-            <td>4229.4438</td>
-            <td>5501.0506</td>
-            <td>7195.38</td>
-            <td><b style="color: green">8.6605</b></td>
-            <td><b style="color: green">15.3362</b></td>
-            <td><b style="color: green">38.5082</b></td>
-            <td>375.65</td>
+            <td><b style="color: green">2858.4124</b></td>
+            <td><b style="color: green">2980.96</b></td>
+            <td><b style="color: green">3310.8102</b></td>
+            <td><b style="color: green">4639.79</b></td>
+            <td><b style="color: green">7.3891</b></td>
+            <td><b style="color: green">12.1101</b></td>
+            <td><b style="color: green">25.0066</b></td>
+            <td><b style="color: green">231.03</b></td>
         </tr>
         <tr>
             <th>Spring Boot</th>
@@ -103,14 +103,14 @@ All latencies listed below are in milliseconds.
         </tr>
         <tr>
             <th>Dagger *</th>
-            <td><b style="color: green">3213.0091</b></td>
-            <td><b style="color: green">3629.6889</b></td>
-            <td><b style="color: green">4850.1132</b></td>
-            <td><b style="color: green">6896.54</b></td>
+            <td>3213.0091</td>
+            <td>3629.6889</td>
+            <td>4850.1132</td>
+            <td>6896.54</td>
             <td>8.9399</td>
             <td>16.3415</td>
             <td>40.3863</td>
-            <td><b style="color: green">292.2</b></td>
+            <td>292.2</td>
         </tr>
 </table>
 *: Dagger is not fully comparable to other frameworks as it only provides dependency injection, and thus is much lighter than the others, which explains these results.

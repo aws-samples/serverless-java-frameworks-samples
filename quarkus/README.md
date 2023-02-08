@@ -25,6 +25,11 @@ Make sure the app name used here matches with the `STACK_NAME` present under `lo
 The SnapStart version uses techniques called Priming and Class Preloading to optimize Lambda initialization time.
 You can learn more about SnapStart and Priming [here](https://aws.amazon.com/blogs/compute/reducing-java-cold-starts-on-aws-lambda-functions-with-snapstart/).
 
+For Class Preloading, include the `-verbose:class` JAVA_TOOL_OPTION JVM argument for the Lambda function in the
+SAM template and after a function invoke, a list of classes are output in CloudWatch Logs which can be preloaded by
+specifying them in the `resources/META-INF/quarkus-preload-classes.txt` file. Refer to the Quarkus AWS Lambda SnapStart
+[guide](https://quarkus.io/guides/amazon-snapstart#class-preloading) for details on Class Preloading.
+
 ### Option 3: GraalVM Native Image with Custom Runtime
 
 ```bash
@@ -127,8 +132,9 @@ Latency for GraalVM version:
 ## AWS X-Ray Tracing
 You can add additional detail to your X-Ray tracing by adding a TracingInterceptor to your AWS SDK clients.
 
-Please note that AWS Lambda SnapStart currently does not support X-ray tracing. For this reason, tracing is disabled for all lambda functions in SnapStart version.
-Lambda SnapStart is available in the US East (Ohio, N. Virginia), US West (Oregon), Asia Pacific (Singapore, Sydney, Tokyo), and Europe (Frankfurt, Ireland, Stockholm) Regions.
+Please note that AWS Lambda SnapStart currently does not support X-ray tracing.
+For this reason, tracing is disabled for all lambda functions in SnapStart version.
+Refer to the [AWS Documentation](https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html#snapstart-supported-regions) for the AWS Regions Lambda SnapStart is available in.
 
 Example cold start trace for JVM version:
 
