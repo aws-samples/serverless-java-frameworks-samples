@@ -70,47 +70,47 @@ All latencies listed below are in milliseconds.
         </tr>        
         <tr>
             <th>Micronaut</th>
-            <td>4898.8332</td>
-            <td>5479.1013</td>
-            <td>7551.7604</td>
+            <td>4898.83</td>
+            <td>5479.10</td>
+            <td>7551.76</td>
             <td>10147.71</td>
-            <td>9.3759</td>
-            <td>17.1385</td>
-            <td>42.356</td>
+            <td>9.37</td>
+            <td>17.13</td>
+            <td>42.35</td>
             <td>531.75</td>
         </tr>
         <tr>
             <th>Quarkus</th>
-            <td><b style="color: green">2858.4124</b></td>
+            <td><b style="color: green">2858.41</b></td>
             <td><b style="color: green">2980.96</b></td>
-            <td><b style="color: green">3310.8102</b></td>
+            <td><b style="color: green">3310.81</b></td>
             <td><b style="color: green">4639.79</b></td>
-            <td><b style="color: green">7.3891</b></td>
-            <td><b style="color: green">12.1101</b></td>
-            <td><b style="color: green">25.0066</b></td>
+            <td><b style="color: green">7.38</b></td>
+            <td><b style="color: green">12.11</b></td>
+            <td><b style="color: green">25.00</b></td>
             <td><b style="color: green">231.03</b></td>
         </tr>
         <tr>
             <th>Spring Boot</th>
-            <td>5517.570</td>
-            <td>6442.1359</td>
-            <td>8616.8082</td>
+            <td>5517.57</td>
+            <td>6442.13</td>
+            <td>8616.80</td>
             <td>11551.01</td>
-            <td>9.3759</td>
-            <td>16.8686</td>
-            <td>40.3863</td>
+            <td>9.37</td>
+            <td>16.86</td>
+            <td>40.38</td>
             <td>319.69</td>
         </tr>
         <tr>
             <th>Dagger *</th>
-            <td>3213.0091</td>
-            <td>3629.6889</td>
-            <td>4850.1132</td>
+            <td>3213.00</td>
+            <td>3629.68</td>
+            <td>4850.11</td>
             <td>6896.54</td>
-            <td>8.9399</td>
-            <td>16.3415</td>
-            <td>40.3863</td>
-            <td>292.2</td>
+            <td>8.94</td>
+            <td>16.34</td>
+            <td>40.38</td>
+            <td>292.20</td>
         </tr>
 </table>
 *: Dagger is not fully comparable to other frameworks as it only provides dependency injection, and thus is much lighter than the others, which explains these results.
@@ -138,13 +138,13 @@ It fits particularly well with Lambda to reduce the initialization time, but doe
         </tr>
         <tr>
             <th>Quarkus</th>
-            <td><b style="color: green">367.9866</b></td>
-            <td><b style="color: green">413.6367</b></td>
-            <td><b style="color: green">517.4309</b></td>
+            <td><b style="color: green">367.98</b></td>
+            <td><b style="color: green">413.63</b></td>
+            <td><b style="color: green">517.43</b></td>
             <td><b style="color: green">573.76</b></td>
-            <td><b style="color: green">6.662</b></td>
-            <td><b style="color: green">11.272</b></td>
-            <td><b style="color: green">21.6653</b></td>
+            <td><b style="color: green">6.66</b></td>
+            <td><b style="color: green">11.27</b></td>
+            <td><b style="color: green">21.66</b></td>
             <td>228.24</td>
         </tr>
         <tr>
