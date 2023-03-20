@@ -6,16 +6,17 @@ import io.micronaut.function.aws.runtime.AbstractMicronautLambdaRuntime;
 
 import java.net.MalformedURLException;
 
-public class FunctionLambdaRuntime extends AbstractMicronautLambdaRuntime<APIGatewayProxyRequestEvent, APIGatewayProxyResponseEvent, APIGatewayProxyRequestEvent, APIGatewayProxyResponseEvent>
-{
+public class FunctionLambdaRuntime extends AbstractMicronautLambdaRuntime<
+  APIGatewayProxyRequestEvent,
+  APIGatewayProxyResponseEvent,
+  APIGatewayProxyRequestEvent,
+  APIGatewayProxyResponseEvent> {
 
   public static void main(String[] args) {
     try {
       new FunctionLambdaRuntime().run(args);
-
     } catch (MalformedURLException e) {
       e.printStackTrace();
     }
   }
-
 }

@@ -137,6 +137,17 @@ It fits particularly well with Lambda to reduce the initialization time, but doe
             <th scope="col">max</th>
         </tr>
         <tr>
+            <th>Micronaut</th>
+            <td>670.31</td>
+            <td>740.03</td>
+            <td>862.31</td>
+            <td>980.73</td>
+            <td>8.52</td>
+            <td>13.50</td>
+            <td>29.40</td>
+            <td>235.33</td>
+        </tr>
+        <tr>
             <th>Quarkus</th>
             <td><b style="color: green">367.98</b></td>
             <td><b style="color: green">413.63</b></td>
