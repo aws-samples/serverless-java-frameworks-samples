@@ -7,9 +7,7 @@ import com.amazonaws.services.lambda.runtime.events.APIGatewayProxyRequestEvent;
 import com.amazonaws.services.lambda.runtime.events.APIGatewayProxyResponseEvent;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.micronaut.core.annotation.Introspected;
-import io.micronaut.function.aws.MicronautRequestHandler;
 import jakarta.inject.Inject;
-import jakarta.inject.Named;
 import software.amazon.awssdk.http.HttpStatusCode;
 import software.amazon.awssdk.http.SdkHttpMethod;
 import software.amazonaws.example.product.dao.ProductDao;
@@ -17,7 +15,7 @@ import software.amazonaws.example.product.entity.Product;
 
 
 @Introspected
-public class CreateProductHandler extends MicronautRequestHandler<APIGatewayProxyRequestEvent, APIGatewayProxyResponseEvent> {
+public class CreateProductHandler extends BaseProductHandler {
   @Inject
   ProductDao productDao;
 
