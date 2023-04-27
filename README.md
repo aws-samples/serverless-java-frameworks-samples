@@ -70,14 +70,14 @@ All latencies listed below are in milliseconds.
         </tr>        
         <tr>
             <th>Micronaut</th>
-            <td>4898.83</td>
-            <td>5479.10</td>
-            <td>7551.76</td>
-            <td>10147.71</td>
-            <td>9.37</td>
-            <td>17.13</td>
-            <td>42.35</td>
-            <td>531.75</td>
+            <td>4609.07</td>
+            <td>4943.09</td>
+            <td>5501.05</td>
+            <td>6657.94</td>
+            <td>8.52</td>
+            <td>14.31</td>
+            <td>32.52</td>
+            <td>314.99</td>
         </tr>
         <tr>
             <th>Quarkus</th>
