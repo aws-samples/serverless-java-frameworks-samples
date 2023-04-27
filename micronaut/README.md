@@ -90,7 +90,7 @@ filter @type="REPORT"
 ```
 
 <p align="center">
-  <img src="../imgs/micronaut/micronaut-sample-log-insights.JPG" alt="JVM Version Log Insights"/>
+  <img src="../imgs/micronaut/micronaut-sample-log-insights.jpg" alt="JVM Version Log Insights"/>
 </p>
 
 **Latency for SnapStart version:**
