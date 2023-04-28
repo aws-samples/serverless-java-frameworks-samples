@@ -1,8 +1,6 @@
 ## Lambda demo with common Java application frameworks
 
-<p align="center">
-  <img src="imgs/diagram.jpg" alt="Architecture diagram"/>
-</p>
+![Architecture Diagram](imgs/diagram.jpg)
 
 This is a simple serverless application built in Java using popular frameworks - [Micronaut](https://micronaut.io/), [Quarkus](https://quarkus.io/), and [Spring Boot](https://spring.io/projects/spring-boot)
 
@@ -13,7 +11,9 @@ functions and an [Amazon DynamoDB](https://aws.amazon.com/dynamodb/) table for s
 
 - [AWS CLI](https://aws.amazon.com/cli/)
 - [AWS SAM](https://aws.amazon.com/serverless/sam/)
-- Java 11
+- Java:
+  - v17 - Micronaut and Quarkus
+  - v11 - Spring Boot
 - Maven
 - [Artillery](https://www.artillery.io/) for load-testing the application
 - Docker (at least 8GB memory and 4 CPUs)
@@ -80,15 +80,15 @@ All latencies listed below are in milliseconds.
             <td>314.99</td>
         </tr>
         <tr>
-            <th>Quarkus</th>
-            <td><b style="color: green">2858.41</b></td>
-            <td><b style="color: green">2980.96</b></td>
-            <td><b style="color: green">3310.81</b></td>
-            <td><b style="color: green">4639.79</b></td>
-            <td><b style="color: green">7.38</b></td>
-            <td><b style="color: green">12.11</b></td>
-            <td><b style="color: green">25.00</b></td>
-            <td><b style="color: green">231.03</b></td>
+            <th>Quarkus (Java 17)</th>
+            <td><b style="color: green">2525.22</b></td>
+            <td><b style="color: green">3146.27</b></td>
+            <td><b style="color: green">4055.57</b></td>
+            <td><b style="color: green">6343.83</b></td>
+            <td><b style="color: green">7.50</b></td>
+            <td><b style="color: green">12.28</b></td>
+            <td><b style="color: green">29.87</b></td>
+            <td><b style="color: green">231.52</b></td>
         </tr>
         <tr>
             <th>Spring Boot</th>
@@ -148,15 +148,15 @@ It fits particularly well with Lambda to reduce the initialization time, but doe
             <td>244.82</td>
         </tr>
         <tr>
-            <th>Quarkus</th>
-            <td><b style="color: green">367.98</b></td>
-            <td><b style="color: green">413.63</b></td>
-            <td><b style="color: green">517.43</b></td>
-            <td><b style="color: green">573.76</b></td>
-            <td><b style="color: green">6.66</b></td>
-            <td><b style="color: green">11.27</b></td>
-            <td><b style="color: green">21.66</b></td>
-            <td>228.24</td>
+            <th>Quarkus (Java 17)</th>
+            <td><b style="color: green">487.31</b></td>
+            <td><b style="color: green">586.87</b></td>
+            <td><b style="color: green">732.67</b></td>
+            <td><b style="color: green">932.17</b></td>
+            <td><b style="color: green">7.38</b></td>
+            <td><b style="color: green">11.91</b></td>
+            <td><b style="color: green">25.20</b></td>
+            <td><b style="color: green">147.26</b></td>
         </tr>
         <tr>
             <th>Spring Boot</th>
@@ -167,7 +167,7 @@ It fits particularly well with Lambda to reduce the initialization time, but doe
             <td>8.07</td>
             <td>13.65</td>
             <td>28.41</td>
-            <td><b style="color: green">226.37</b></td>
+            <td>226.37</td>
         </tr>
 </table>
 

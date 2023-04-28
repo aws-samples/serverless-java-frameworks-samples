@@ -77,6 +77,7 @@ Using this CloudWatch Logs Insights query you can analyze the latency of the req
 
 The query separates cold starts from other requests and then gives you p50, p90 and p99 percentiles.
 
+**Latency for JVM version:** 
 >:warning: Please note that this query is not applicable to SnapStart version.
 
 ```
@@ -84,13 +85,9 @@ filter @type="REPORT"
 | fields greatest(@initDuration, 0) + @duration as duration, ispresent(@initDuration) as coldStart
 | stats count(*) as count, pct(duration, 50) as p50, pct(duration, 90) as p90, pct(duration, 99) as p99, max(duration) as max by coldStart
 ```
+![JVM Version Log Insights](../imgs/quarkus/quarkus-sample-log-insights.jpg)
 
-Latency for JVM version:
-<p align="center">
-  <img src="../imgs/quarkus/quarkus-sample-log-insights.JPG" alt="JVM Version Log Insights"/>
-</p>
-
-Latency for SnapStart version:
+**Latency for SnapStart version:** 
 AWS Lambda service logs Restoration time differently compared to cold start times in CloudWatch Logs. For this
 reason, we need different CloudWatch Logs Insights queries to capture performance metrics for SnapStart functions.
 Also, it's easier to get cold and warm start performance metrics with two different queries rather than one.
@@ -105,10 +102,7 @@ filter @message like "REPORT"
 | fields @duration + restoreTime as duration
 | stats count(*) as count, pct(duration, 50) as p50, pct(duration, 90) as p90, pct(duration, 99) as p99, max(duration) as max
 ```
-
-<p align="center">
-  <img src="../imgs/quarkus/quarkus-snapstart-cold-log-insights.JPG" alt="Cold Start Metrics with SnapStart"/>
-</p>
+![Cold Start Metrics with SnapStart](../imgs/quarkus/quarkus-snapstart-cold-log-insights.jpg)
 
 Use the below query to get warm start metrics for with SnapStart Lambda functions:
 ```
@@ -119,15 +113,10 @@ filter @message like "REPORT"
 | stats count(*) as count, pct(duration, 50) as p50, pct(duration, 90) as p90, pct(duration, 99) as p99, max(duration) as max
 ```
 
-<p align="center">
-  <img src="../imgs/quarkus/quarkus-snapstart-warm-log-insights.JPG" alt="Cold Start Metrics with SnapStart"/>
-</p>
+![Warm Start Metrics with SnapStart](../imgs/quarkus/quarkus-snapstart-warm-log-insights.jpg)
 
-Latency for GraalVM version:
-
-<p align="center">
-  <img src="../imgs/quarkus/quarkus-native-log-insights.JPG" alt="GraalVM Version Log Insights"/>
-</p>
+**Latency for GraalVM version:** 
+![GraalVM Version Log Insights](../imgs/quarkus/quarkus-native-log-insights.JPG)
 
 ## AWS X-Ray Tracing
 You can add additional detail to your X-Ray tracing by adding a TracingInterceptor to your AWS SDK clients.
@@ -138,24 +127,16 @@ Refer to the [AWS Documentation](https://docs.aws.amazon.com/lambda/latest/dg/sn
 
 Example cold start trace for JVM version:
 
-<p align="center">
-  <img src="../imgs/quarkus/quarkus-sample-cold-trace.JPG" alt="JVM Version Cold Trace Example"/>
-</p>
+![JVM Version Cold Trace Example](../imgs/quarkus/quarkus-sample-cold-trace.JPG)
 
 Example cold start trace for GraalVM version:
 
-<p align="center">
-  <img src="../imgs/quarkus/quarkus-native-cold-trace.JPG" alt="GraalVM Version Cold Trace Example"/>
-</p>
+![GraalVM Version Cold Trace Example](../imgs/quarkus/quarkus-native-cold-trace.JPG)
 
 Example warm start trace for JVM version:
 
-<p align="center">
-  <img src="../imgs/quarkus/quarkus-sample-warm-trace.JPG" alt="JVM Version Warm Trace Example"/>
-</p>
+![JVM Version Warm Trace Example](../imgs/quarkus/quarkus-sample-warm-trace.JPG)
 
 Example warm start trace for GraalVM version:
 
-<p align="center">
-  <img src="../imgs/quarkus/quarkus-native-warm-trace.JPG" alt="GraalVM Version Warm Trace Example"/>
-</p>
+![GraalVM Version Warm Trace Example](../imgs/quarkus/quarkus-native-warm-trace.JPG)
