@@ -69,15 +69,15 @@ All latencies listed below are in milliseconds.
             <th scope="col">max</th>
         </tr>        
         <tr>
-            <th>Micronaut</th>
-            <td>4898.83</td>
-            <td>5479.10</td>
-            <td>7551.76</td>
-            <td>10147.71</td>
-            <td>9.37</td>
-            <td>17.13</td>
-            <td>42.35</td>
-            <td>531.75</td>
+            <th>Micronaut (Java 17)</th>
+            <td>4609.07</td>
+            <td>4943.09</td>
+            <td>5501.05</td>
+            <td>6657.94</td>
+            <td>8.52</td>
+            <td>14.31</td>
+            <td>32.52</td>
+            <td>314.99</td>
         </tr>
         <tr>
             <th>Quarkus</th>
@@ -137,15 +137,15 @@ It fits particularly well with Lambda to reduce the initialization time, but doe
             <th scope="col">max</th>
         </tr>
         <tr>
-            <th>Micronaut</th>
-            <td>670.31</td>
-            <td>740.03</td>
-            <td>862.31</td>
-            <td>980.73</td>
-            <td>8.52</td>
-            <td>13.50</td>
-            <td>29.40</td>
-            <td>235.33</td>
+            <th>Micronaut (Java 17)</th>
+            <td>726.11</td>
+            <td>815.37</td>
+            <td>931.30</td>
+            <td>1047.49</td>
+            <td>7.68</td>
+            <td>12.30</td>
+            <td>28.18</td>
+            <td>244.82</td>
         </tr>
         <tr>
             <th>Quarkus</th>

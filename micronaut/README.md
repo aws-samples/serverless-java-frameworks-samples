@@ -80,16 +80,17 @@ Using this CloudWatch Logs Insights query you can analyse the latency of the req
 
 The query separates cold starts from other requests and then gives you p50, p90 and p99 percentiles.
 
+**Latency for JVM version (without SnapStart):**
 >:warning: Please note that this query is not applicable to SnapStart version.
 
-```filter @type="REPORT"
+```
+filter @type="REPORT"
 | fields greatest(@initDuration, 0) + @duration as duration, ispresent(@initDuration) as coldStart
 | stats count(*) as count, pct(duration, 50) as p50, pct(duration, 90) as p90, pct(duration, 99) as p99, max(duration) as max by coldStart
 ```
 
-**Latency for JVM version:**
 <p align="center">
-  <img src="../imgs/micronaut/micronaut-sample-log-insights.JPG" alt="JVM Version Log Insights"/>
+  <img src="../imgs/micronaut/micronaut-sample-log-insights.jpg" alt="JVM Version Log Insights"/>
 </p>
 
 **Latency for SnapStart version:**
