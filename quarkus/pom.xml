@@ -138,7 +138,7 @@
         <quarkus.package.type>native</quarkus.package.type>
         <quarkus.native.container-build>true</quarkus.native.container-build>
         <quarkus.native.builder-image>
-          quay.io/quarkus/ubi-quarkus-graalvmce-builder-image:22.3.1-java11
+          quay.io/quarkus/ubi-quarkus-graalvmce-builder-image:22.3-java17
         </quarkus.native.builder-image>
         <quarkus.native.additional-build-args>
           --initialize-at-run-time=software.amazon.awssdk.services.dynamodb.DynamoDbRetryPolicy\,org.apache.http.impl.auth.NTLMEngineImpl\,software.amazonaws.example.product.product.dao.DynamoProductDao

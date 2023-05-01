@@ -85,7 +85,7 @@ filter @type="REPORT"
 | fields greatest(@initDuration, 0) + @duration as duration, ispresent(@initDuration) as coldStart
 | stats count(*) as count, pct(duration, 50) as p50, pct(duration, 90) as p90, pct(duration, 99) as p99, max(duration) as max by coldStart
 ```
-![JVM Version Log Insights](../imgs/quarkus/quarkus-sample-log-insights.jpg)
+![JVM Version Log Insights](../imgs/quarkus/quarkus-sample-log-insights.JPG)
 
 **Latency for SnapStart version:** 
 AWS Lambda service logs Restoration time differently compared to cold start times in CloudWatch Logs. For this
@@ -102,7 +102,7 @@ filter @message like "REPORT"
 | fields @duration + restoreTime as duration
 | stats count(*) as count, pct(duration, 50) as p50, pct(duration, 90) as p90, pct(duration, 99) as p99, max(duration) as max
 ```
-![Cold Start Metrics with SnapStart](../imgs/quarkus/quarkus-snapstart-cold-log-insights.jpg)
+![Cold Start Metrics with SnapStart](../imgs/quarkus/quarkus-snapstart-cold-log-insights.JPG)
 
 Use the below query to get warm start metrics for with SnapStart Lambda functions:
 ```
@@ -113,7 +113,7 @@ filter @message like "REPORT"
 | stats count(*) as count, pct(duration, 50) as p50, pct(duration, 90) as p90, pct(duration, 99) as p99, max(duration) as max
 ```
 
-![Warm Start Metrics with SnapStart](../imgs/quarkus/quarkus-snapstart-warm-log-insights.jpg)
+![Warm Start Metrics with SnapStart](../imgs/quarkus/quarkus-snapstart-warm-log-insights.JPG)
 
 **Latency for GraalVM version:** 
 ![GraalVM Version Log Insights](../imgs/quarkus/quarkus-native-log-insights.JPG)

@@ -37,6 +37,12 @@ Resources:
             Path: /products/{id}
             Method: get
 
+  GetProductByIdFunctionLogGroup:
+    Type: AWS::Logs::LogGroup
+    Properties:
+      LogGroupName: !Sub "/aws/lambda/${GetProductByIdFunction}"
+      RetentionInDays: 7
+
   GetProductsFunction:
     Type: AWS::Serverless::Function
     Properties:
@@ -51,6 +57,12 @@ Resources:
             RestApiId: !Ref MyApi
             Path: /products
             Method: get
+
+  GetProductsFunctionLogGroup:
+    Type: AWS::Logs::LogGroup
+    Properties:
+      LogGroupName: !Sub "/aws/lambda/${GetProductsFunction}"
+      RetentionInDays: 7
 
   PutProductFunction:
     Type: AWS::Serverless::Function
@@ -67,6 +79,12 @@ Resources:
             Path: /products/{id}
             Method: put
 
+  PutProductFunctionLogGroup:
+    Type: AWS::Logs::LogGroup
+    Properties:
+      LogGroupName: !Sub "/aws/lambda/${PutProductFunction}"
+      RetentionInDays: 7
+
   DeleteProductFunction:
     Type: AWS::Serverless::Function
     Properties:
@@ -81,6 +99,12 @@ Resources:
             RestApiId: !Ref MyApi
             Path: /products/{id}
             Method: delete
+
+  DeleteProductFunctionLogGroup:
+    Type: AWS::Logs::LogGroup
+    Properties:
+      LogGroupName: !Sub "/aws/lambda/${DeleteProductFunction}"
+      RetentionInDays: 7
 
   ProductsTable:
     Type: AWS::DynamoDB::Table
