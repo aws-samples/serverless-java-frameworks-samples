@@ -192,26 +192,26 @@ It fits particularly well with Lambda to reduce the initialization time, but doe
             <th scope="col">max</th>
         </tr>        
         <tr>
-            <th>Micronaut</th>
-            <td>604.16</td>
-            <td>659.02</td>
-            <td>700.45</td>
-            <td>893.70</td>
-            <td><b style="color: green">6.30</b></td>
-            <td><b style="color: green">8.00</b></td>
-            <td><b style="color: green">15.88</b></td>
-            <td><b style="color: green">69.9</b></td>
+            <th>Micronaut (22.3.r17)</th>
+            <td>638.27</td>
+            <td>722.49</td>
+            <td>960.60.45</td>
+            <td>1416.85</td>
+            <td>7.56</td>
+            <td>12.11</td>
+            <td>23.46</td>
+            <td>1029.55</td>
         </tr>
         <tr>
-            <th>Quarkus</th>
-            <td><b style="color: green">437.45</b></td>
-            <td><b style="color: green">475.76</b></td>
-            <td><b style="color: green">519.50</b></td>
-            <td><b style="color: green">528.03</b></td>
-            <td>7.45</td>
-            <td>12.60</td>
-            <td>21.32</td>
-            <td>93.45</td>
+            <th>Quarkus (22.3.r17)</th>
+            <td>467.27</td>
+            <td>599.77</td>
+            <td>802.43</td>
+            <td>1348.78</td>
+            <td>6.7</td>
+            <td>11.63</td>
+            <td>24.03</td>
+            <td>168.47</td>
         </tr>
         <tr>
             <th>Spring Boot</th>
