@@ -89,9 +89,7 @@ filter @type="REPORT"
 | stats count(*) as count, pct(duration, 50) as p50, pct(duration, 90) as p90, pct(duration, 99) as p99, max(duration) as max by coldStart
 ```
 
-<p align="center">
-  <img src="../imgs/micronaut/micronaut-sample-log-insights.jpg" alt="JVM Version Log Insights"/>
-</p>
+![JVM Version Log Insights](../imgs/micronaut/micronaut-sample-log-insights.JPG)
 
 **Latency for SnapStart version:**
 
@@ -110,9 +108,7 @@ filter @message like "REPORT"
 | stats count(*) as count, pct(duration, 50) as p50, pct(duration, 90) as p90, pct(duration, 99) as p99, max(duration) as max
 ```
 
-<p align="center">
-  <img src="../imgs/micronaut/micronaut-snapstart-cold-log-insights.jpg" alt="Cold Start Metrics with SnapStart"/>
-</p>
+![Cold Start Metrics with SnapStart](../imgs/micronaut/micronaut-snapstart-cold-log-insights.jpg)
 
 Use the below query to get warm start metrics for with SnapStart Lambda functions:
 ```
@@ -123,40 +119,28 @@ filter @message like "REPORT"
 | stats count(*) as count, pct(duration, 50) as p50, pct(duration, 90) as p90, pct(duration, 99) as p99, max(duration) as max
 ```
 
-<p align="center">
-  <img src="../imgs/micronaut/micronaut-snapstart-warm-log-insights.jpg" alt="Warm Start Metrics with SnapStart"/>
-</p>
+![Warm Start Metrics with SnapStart](../imgs/micronaut/micronaut-snapstart-warm-log-insights.jpg)
 
 **Latency for GraalVM version:**
 
-<p align="center">
-  <img src="../imgs/micronaut/micronaut-native-log-insights.JPG" alt="GraalVM Version Log Insights"/>
-</p>
+![GraalVM Version Log Insights](../imgs/micronaut/micronaut-native-log-insights.JPG)
 
 ## AWS X-Ray Tracing
 You can add additional detail to your X-Ray tracing by adding a TracingInterceptor to your AWS SDK clients.
 
 Example cold start trace for JVM version:
 
-<p align="center">
-  <img src="../imgs/micronaut/micronaut-sample-cold-trace.JPG" alt="JVM Version Cold Trace Example"/>
-</p>
+![JVM Version Cold Trace Example](../imgs/micronaut/micronaut-sample-cold-trace.JPG)
 
 Example cold start trace for GraalVM version:
 
-<p align="center">
-  <img src="../imgs/micronaut/micronaut-native-cold-trace.JPG" alt="GraalVM Version Cold Trace Example"/>
-</p>
+![GraalVM Version Cold Trace Example](../imgs/micronaut/micronaut-native-cold-trace.JPG)
 
 Example warm start trace for JVM version:
 
-<p align="center">
-  <img src="../imgs/micronaut/micronaut-sample-warm-trace.JPG" alt="JVM Version Warm Trace Example"/>
-</p>
+![JVM Version Warm Trace Example](../imgs/micronaut/micronaut-sample-warm-trace.JPG)
 
 Example warm start trace for GraalVM version:
 
-<p align="center">
-  <img src="../imgs/micronaut/micronaut-native-warm-trace.JPG" alt="GraalVM Version Warm Trace Example"/>
-</p>
+![GraalVM Version Warm Trace Example](../imgs/micronaut/micronaut-native-warm-trace.JPG)
 
