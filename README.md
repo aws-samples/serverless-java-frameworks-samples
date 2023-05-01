@@ -14,6 +14,7 @@ functions and an [Amazon DynamoDB](https://aws.amazon.com/dynamodb/) table for s
 - Java:
   - v17 - Micronaut and Quarkus
   - v11 - Spring Boot
+- [GraalVM](https://www.graalvm.org/) for Native builds
 - Maven
 - [Artillery](https://www.artillery.io/) for load-testing the application
 - Docker (at least 8GB memory and 4 CPUs)
@@ -195,7 +196,7 @@ It fits particularly well with Lambda to reduce the initialization time, but doe
             <th>Micronaut (22.3.r17)</th>
             <td>638.27</td>
             <td>722.49</td>
-            <td>960.60.45</td>
+            <td>960.60</td>
             <td>1416.85</td>
             <td>7.56</td>
             <td>12.11</td>
