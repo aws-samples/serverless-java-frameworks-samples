@@ -8,13 +8,12 @@ import com.amazonaws.services.lambda.runtime.RequestHandler;
 import com.amazonaws.services.lambda.runtime.events.APIGatewayProxyRequestEvent;
 import com.amazonaws.services.lambda.runtime.events.APIGatewayProxyResponseEvent;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import jakarta.inject.Inject;
+import jakarta.inject.Named;
 import software.amazon.awssdk.http.HttpStatusCode;
 import software.amazon.awssdk.http.SdkHttpMethod;
 import software.amazonaws.example.product.product.dao.ProductDao;
 import software.amazonaws.example.product.product.entity.Product;
-
-import javax.inject.Inject;
-import javax.inject.Named;
 
 @Named("createProduct")
 public class CreateProductHandler implements RequestHandler<APIGatewayProxyRequestEvent, APIGatewayProxyResponseEvent> {
@@ -34,7 +33,7 @@ public class CreateProductHandler implements RequestHandler<APIGatewayProxyReque
       String id = requestEvent.getPathParameters().get("id");
       String jsonPayload = requestEvent.getBody();
       Product product = objectMapper.readValue(jsonPayload, Product.class);
-      if (!product.getId().equals(id)) {
+      if (!product.id().equals(id)) {
         return new APIGatewayProxyResponseEvent()
           .withStatusCode(HttpStatusCode.BAD_REQUEST)
           .withBody("Product ID in the body does not match path parameter");

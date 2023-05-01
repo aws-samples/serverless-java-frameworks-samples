@@ -9,18 +9,18 @@
   <properties>
     <compiler-plugin.version>3.8.1</compiler-plugin.version>
     <maven.compiler.parameters>true</maven.compiler.parameters>
-    <maven.compiler.target>11</maven.compiler.target>
-    <maven.compiler.source>11</maven.compiler.source>
+    <maven.compiler.target>17</maven.compiler.target>
+    <maven.compiler.source>17</maven.compiler.source>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <quarkus-plugin.version>2.16.1.Final</quarkus-plugin.version>
+    <quarkus-plugin.version>3.0.1.Final</quarkus-plugin.version>
     <quarkus.platform.artifact-id>quarkus-bom</quarkus.platform.artifact-id>
     <quarkus.platform.group-id>io.quarkus</quarkus.platform.group-id>
-    <quarkus.platform.version>2.16.1.Final</quarkus.platform.version>
+    <quarkus.platform.version>3.0.1.Final</quarkus.platform.version>
     <surefire-plugin.version>3.0.0-M5</surefire-plugin.version>
     <quarkus.package.type>uber-jar</quarkus.package.type>
-    <aws.package.name>${artifactId}-${version}-aws.jar</aws.package.name>
-    <aws.sdk2.version>2.17.131</aws.sdk2.version>
+    <aws.package.name>${project.artifactId}-${project.version}-aws.jar</aws.package.name>
+    <aws.sdk2.version>2.20.42</aws.sdk2.version>
   </properties>
   <dependencyManagement>
     <dependencies>

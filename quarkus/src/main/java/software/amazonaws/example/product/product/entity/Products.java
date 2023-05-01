@@ -8,22 +8,7 @@ import io.quarkus.runtime.annotations.RegisterForReflection;
 import java.util.List;
 
 @RegisterForReflection
-public class Products {
-  private List<Product> products;
+public record Products(List<Product> products) {
 
-  public Products() {
-  }
-
-  public Products(List<Product> products) {
-    this.products = products;
-  }
-
-  public List<Product> getProducts() {
-    return products;
-  }
-
-  public void setProducts(List<Product> products) {
-    this.products = products;
-  }
 }
 

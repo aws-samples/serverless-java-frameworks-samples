@@ -8,7 +8,7 @@ Globals:
   Function:
     CodeUri: target/quarkus-lambda-function-1.0.0-SNAPSHOT-aws.jar
     Handler: io.quarkus.amazon.lambda.runtime.QuarkusStreamHandler::handleRequest
-    Runtime: java11
+    Runtime: java17
     Timeout: 30
     MemorySize: 1024
     AutoPublishAlias: live
@@ -19,7 +19,6 @@ Globals:
         # Include the "-verbose:class" Java tools option to output classes to
         # preload in CloudWatch Logs and the classes are written in
         # resources/META-INF/quarkus-preload-classes.txt
-        JAVA_TOOL_OPTIONS: "-XX:+TieredCompilation -XX:TieredStopAtLevel=1"
         PRODUCT_TABLE_NAME: !Ref ProductsTable
 
 Resources:
@@ -46,6 +45,12 @@ Resources:
             Path: /products/{id}
             Method: get
 
+  GetProductByIdFunctionLogGroup:
+    Type: AWS::Logs::LogGroup
+    Properties:
+      LogGroupName: !Sub "/aws/lambda/${GetProductByIdFunction}"
+      RetentionInDays: 7
+
   GetProductsFunction:
     Type: AWS::Serverless::Function
     Properties:
@@ -62,6 +67,12 @@ Resources:
             RestApiId: !Ref MyApi
             Path: /products
             Method: get
+
+  GetProductsFunctionLogGroup:
+    Type: AWS::Logs::LogGroup
+    Properties:
+      LogGroupName: !Sub "/aws/lambda/${GetProductsFunction}"
+      RetentionInDays: 7
 
   PutProductFunction:
     Type: AWS::Serverless::Function
@@ -80,6 +91,12 @@ Resources:
             Path: /products/{id}
             Method: put
 
+  PutProductFunctionLogGroup:
+    Type: AWS::Logs::LogGroup
+    Properties:
+      LogGroupName: !Sub "/aws/lambda/${PutProductFunction}"
+      RetentionInDays: 7
+
   DeleteProductFunction:
     Type: AWS::Serverless::Function
     Properties:
@@ -96,6 +113,12 @@ Resources:
             RestApiId: !Ref MyApi
             Path: /products/{id}
             Method: delete
+
+  DeleteProductFunctionLogGroup:
+    Type: AWS::Logs::LogGroup
+    Properties:
+      LogGroupName: !Sub "/aws/lambda/${DeleteProductFunction}"
+      RetentionInDays: 7
 
   ProductsTable:
     Type: AWS::DynamoDB::Table

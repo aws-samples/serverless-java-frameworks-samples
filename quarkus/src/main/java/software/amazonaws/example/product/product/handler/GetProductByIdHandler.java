@@ -8,13 +8,13 @@ import com.amazonaws.services.lambda.runtime.RequestHandler;
 import com.amazonaws.services.lambda.runtime.events.APIGatewayProxyRequestEvent;
 import com.amazonaws.services.lambda.runtime.events.APIGatewayProxyResponseEvent;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import jakarta.inject.Inject;
+import jakarta.inject.Named;
 import software.amazon.awssdk.http.HttpStatusCode;
 import software.amazon.awssdk.http.SdkHttpMethod;
 import software.amazonaws.example.product.product.dao.ProductDao;
 import software.amazonaws.example.product.product.entity.Product;
 
-import javax.inject.Inject;
-import javax.inject.Named;
 import java.util.Optional;
 
 @Named("getProductById")
