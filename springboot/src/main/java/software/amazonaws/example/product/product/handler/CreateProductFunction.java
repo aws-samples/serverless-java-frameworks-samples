@@ -36,7 +36,7 @@ public class CreateProductFunction implements Function<APIGatewayProxyRequestEve
       String id = requestEvent.getPathParameters().get("id");
       String jsonPayload = requestEvent.getBody();
       Product product = objectMapper.readValue(jsonPayload, Product.class);
-      if (!product.getId().equals(id)) {
+      if (!product.id().equals(id)) {
         return new APIGatewayProxyResponseEvent()
           .withStatusCode(HttpStatusCode.BAD_REQUEST)
           .withBody("Product ID in the body does not match path parameter");

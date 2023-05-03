@@ -26,7 +26,8 @@ The SnapStart version uses techniques called Priming and Class Preloading to opt
 You can learn more about SnapStart and Priming [here](https://aws.amazon.com/blogs/compute/reducing-java-cold-starts-on-aws-lambda-functions-with-snapstart/).
 
 #### Eager Initialization of Singletons
-You specify to eagerly initialize `@Singleton` scoped beans which is desirable for AWS Lambda. You can learn more from Micronaut's [Eager Initialization of Singletons](https://docs.micronaut.io/latest/guide/#eagerInit) documentation.
+You specify to eagerly initialize `@Singleton` scoped beans, which is desirable for AWS Lambda.
+You can learn more from Micronaut [Eager Initialization of Singletons](https://docs.micronaut.io/latest/guide/#eagerInit) documentation.
 
 ### Option 2: GraalVM Native Image
 
@@ -34,7 +35,7 @@ You specify to eagerly initialize `@Singleton` scoped beans which is desirable f
 mvn clean package -Dpackaging=docker-native -Dmicronaut.runtime=lambda -Pgraalvm
 ```
 
-Once above command completes, run:
+Once the above command completes, run:
 ```bash
 sam deploy -t template.native.yaml -g
 ```
@@ -76,7 +77,7 @@ This is a demanding load test, to change the rate alter the `arrivalRate` value 
 
 ## CloudWatch Logs Insights
 
-Using this CloudWatch Logs Insights query you can analyse the latency of the requests made to the Lambda functions.
+Using this CloudWatch Logs Insights, you can analyze the latency of the requests made to the Lambda functions.
 
 The query separates cold starts from other requests and then gives you p50, p90 and p99 percentiles.
 

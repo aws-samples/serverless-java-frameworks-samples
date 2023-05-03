@@ -9,12 +9,11 @@ Globals:
     Tracing: Active
     CodeUri: target/springboot-lambda-function-1.0.0-SNAPSHOT-aws.jar
     Handler: org.springframework.cloud.function.adapter.aws.FunctionInvoker::handleRequest
-    Runtime: java11
+    Runtime: java17
     Timeout: 30
     MemorySize: 1024
     Environment:
       Variables:
-        JAVA_TOOL_OPTIONS: "-XX:+TieredCompilation -XX:TieredStopAtLevel=1"
         PRODUCT_TABLE_NAME: !Ref ProductsTable
 
 Resources:
