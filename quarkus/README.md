@@ -26,7 +26,7 @@ The SnapStart version uses techniques called Priming and Class Preloading to opt
 You can learn more about SnapStart and Priming [here](https://aws.amazon.com/blogs/compute/reducing-java-cold-starts-on-aws-lambda-functions-with-snapstart/).
 
 For Class Preloading, include the `-verbose:class` JAVA_TOOL_OPTION JVM argument for the Lambda function in the
-SAM template and after a function invoke, a list of classes are output in CloudWatch Logs which can be preloaded by
+SAM template and after a function invoke, a list of classes is output in CloudWatch Logs which can be preloaded by
 specifying them in the `resources/META-INF/quarkus-preload-classes.txt` file. Refer to the Quarkus AWS Lambda SnapStart
 [guide](https://quarkus.io/guides/amazon-snapstart#class-preloading) for details on Class Preloading.
 
@@ -73,7 +73,7 @@ This is a demanding load test, to change the rate alter the `arrivalRate` value 
 
 ## CloudWatch Logs Insights
 
-Using this CloudWatch Logs Insights query you can analyze the latency of the requests made to the Lambda functions.
+Using this CloudWatch Logs Insights, you can analyze the latency of the requests made to the Lambda functions.
 
 The query separates cold starts from other requests and then gives you p50, p90 and p99 percentiles.
 
