@@ -6,6 +6,7 @@ Description: >
 
 Globals:
   Function:
+    Tracing: Active
     CodeUri: target/springboot-lambda-function-1.0.0-SNAPSHOT-aws.jar
     Handler: org.springframework.cloud.function.adapter.aws.FunctionInvoker::handleRequest
     Runtime: java17
@@ -22,6 +23,7 @@ Resources:
   MyApi:
     Type: AWS::Serverless::Api
     Properties:
+      TracingEnabled: true
       StageName: prod
       Name: My Lambda springboot SnapStart API
 

@@ -4,7 +4,7 @@ Description: Sample SAM Template for Micronaut Lambda functions with SnapStart e
 
 Globals:
   Function:
-    # Tracing: Active ## SnapStart does not support X-Ray yet
+    Tracing: Active
     CodeUri: target/micronaut-lambda-function-1.0.0-SNAPSHOT.jar
     Runtime: java17
     Timeout: 30
@@ -20,6 +20,7 @@ Resources:
   MyApi:
     Type: AWS::Serverless::Api
     Properties:
+      TracingEnabled: true
       StageName: prod
       Name: My Lambda Micronaut Sample API
 

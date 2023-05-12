@@ -6,6 +6,7 @@ Description: >
 
 Globals:
   Function:
+    Tracing: Active
     CodeUri: target/quarkus-lambda-function-1.0.0-SNAPSHOT-aws.jar
     Handler: io.quarkus.amazon.lambda.runtime.QuarkusStreamHandler::handleRequest
     Runtime: java17
@@ -17,7 +18,7 @@ Globals:
     Environment:
       Variables:
         # Include the "-verbose:class" Java tools option to output classes to
-        # preload in CloudWatch Logs and the classes are written in
+        # preload in CloudWatch Logs, and the classes are written in
         # resources/META-INF/quarkus-preload-classes.txt
         PRODUCT_TABLE_NAME: !Ref ProductsTable
 
@@ -25,6 +26,7 @@ Resources:
   MyApi:
     Type: AWS::Serverless::Api
     Properties:
+      TracingEnabled: true
       StageName: prod
       Name: My Lambda Quarkus SnapStart API
 

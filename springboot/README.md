@@ -148,8 +148,11 @@ You can add additional detail to your X-Ray tracing by adding a TracingIntercept
 Please note that AWS Lambda SnapStart currently does not support X-ray tracing. For this reason, tracing is disabled for all lambda functions in SnapStart version.
 Lambda SnapStart is available in these [supported Regions.](https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html#snapstart-supported-regions)
 
-Example cold start trace for JVM version:
+Example cold start trace for JVM (non-SnapStart) version:
 ![JVM Version Cold Trace Example](../imgs/springboot/springboot-sample-cold-trace.JPG)
+
+Example cold start trace for JVM (SnapStart) version:
+![SnapStart Version Cold Trace Example](../imgs/springboot/springboot-snapstart-cold-trace.JPG)
 
 Example cold start trace for GraalVM version:
 ![GraalVM Version Cold Trace Example](../imgs/springboot/springboot-native-cold-trace.JPG)

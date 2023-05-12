@@ -125,9 +125,13 @@ Please note that AWS Lambda SnapStart currently does not support X-ray tracing.
 For this reason, tracing is disabled for all lambda functions in SnapStart version.
 Refer to the [AWS Documentation](https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html#snapstart-supported-regions) for the AWS Regions Lambda SnapStart is available in.
 
-Example cold start trace for JVM version:
+Example cold start trace for JVM (non-SnapStart) version:
 
 ![JVM Version Cold Trace Example](../imgs/quarkus/quarkus-sample-cold-trace.JPG)
+
+Example cold start trace for JVM (SnapStart) version:
+
+![SnapStart Version Cold Trace Example](../imgs/quarkus/quarkus-snapstart-cold-trace.JPG)
 
 Example cold start trace for GraalVM version:
 
