@@ -129,9 +129,13 @@ filter @message like "REPORT"
 ## AWS X-Ray Tracing
 You can add additional detail to your X-Ray tracing by adding a TracingInterceptor to your AWS SDK clients.
 
-Example cold start trace for JVM version:
+Example cold start trace for JVM (non-SnapStart) version:
 
 ![JVM Version Cold Trace Example](../imgs/micronaut/micronaut-sample-cold-trace.JPG)
+
+Example cold start trace for JVM (SnapStart) version:
+
+![SnapStart Version Cold Trace Example](../imgs/micronaut/micronaut-snapstart-cold-trace.JPG)
 
 Example cold start trace for GraalVM version:
 
