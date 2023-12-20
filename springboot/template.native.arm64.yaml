@@ -11,7 +11,7 @@ Globals:
     Tracing: Active
     CodeUri: target/function-native-zip.zip
     Handler: org.springframework.cloud.function.adapter.aws.SpringBootStreamHandler
-    Runtime: provided.al2
+    Runtime: provided.al2023
     Timeout: 30
     MemorySize: 1024
     Environment:
@@ -30,7 +30,7 @@ Resources:
     Properties:
       Environment:
         Variables:
-          DEFAULT_HANDLER: getProductById
+          SPRING_CLOUD_FUNCTION_DEFINITION: getProductByIdFunction
       Policies:
         - DynamoDBReadPolicy:
             TableName: !Ref ProductsTable
@@ -47,7 +47,7 @@ Resources:
     Properties:
       Environment:
         Variables:
-          DEFAULT_HANDLER: getAllProducts
+          SPRING_CLOUD_FUNCTION_DEFINITION: getAllProductsFunction
       Policies:
         - DynamoDBReadPolicy:
             TableName: !Ref ProductsTable
@@ -64,7 +64,7 @@ Resources:
     Properties:
       Environment:
         Variables:
-          DEFAULT_HANDLER: createProduct
+          SPRING_CLOUD_FUNCTION_DEFINITION: createProductFunction
       Policies:
         - DynamoDBCrudPolicy:
             TableName: !Ref ProductsTable
@@ -81,7 +81,7 @@ Resources:
     Properties:
       Environment:
         Variables:
-          DEFAULT_HANDLER: deleteProduct
+          SPRING_CLOUD_FUNCTION_DEFINITION: deleteProductFunction
       Policies:
         - DynamoDBCrudPolicy:
             TableName: !Ref ProductsTable

@@ -9,7 +9,7 @@ Globals:
     Tracing: Active
     CodeUri: target/function-native-zip.zip
     Handler: org.springframework.cloud.function.adapter.aws.FunctionInvoker::handleRequest
-    Runtime: provided
+    Runtime: provided.al2023
     Timeout: 30
     MemorySize: 1024
     Environment:

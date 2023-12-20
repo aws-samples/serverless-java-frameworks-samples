@@ -96,15 +96,15 @@ All latencies listed below are in milliseconds.
             <td><b style="color: green">231.52</b></td>
         </tr>
         <tr>
-            <th>Spring Boot (Java 17)</th>
-            <td>5311.93</td>
-            <td>5645.88</td>
-            <td>6183.47</td>
-            <td>7027.66</td>
-            <td>8.13</td>
-            <td>13.01</td>
-            <td>30.03</td>
-            <td>251.27</td>
+            <th>Spring Boot (Java 21)</th>
+            <td>5731.16</td>
+            <td>6018.84</td>
+            <td>6258.09</td>
+            <td>7011.35</td>
+            <td>8.32</td>
+            <td>13.54</td>
+            <td>26.65</td>
+            <td>174.24</td>
         </tr>
         <tr>
             <th>Dagger *</th>

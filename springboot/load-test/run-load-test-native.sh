@@ -1,4 +1,4 @@
-STACK_NAME=springboot-sample-native
+STACK_NAME=springboot-native
 
 API_URL=$(aws cloudformation describe-stacks --stack-name $STACK_NAME \
   --query 'Stacks[0].Outputs[?OutputKey==`ApiEndpoint`].OutputValue' \
