@@ -85,15 +85,15 @@ All latencies listed below are in milliseconds.
             <td>314.99</td>
         </tr>
         <tr>
-            <th>Quarkus (Java 17)</th>
-            <td><b style="color: green">2525.22</b></td>
-            <td><b style="color: green">3146.27</b></td>
-            <td><b style="color: green">4055.57</b></td>
-            <td><b style="color: green">6343.83</b></td>
-            <td><b style="color: green">7.50</b></td>
-            <td><b style="color: green">12.28</b></td>
-            <td><b style="color: green">29.87</b></td>
-            <td><b style="color: green">231.52</b></td>
+            <th>Quarkus (Java 21)</th>
+            <td><b style="color: green">2807.45</b></td>
+            <td><b style="color: green">3330.47</b></td>
+            <td><b style="color: green">4051.52</b></td>
+            <td><b style="color: green">4483.37</b></td>
+            <td><b style="color: green">8.07</b></td>
+            <td><b style="color: green">12.91</b></td>
+            <td><b style="color: green">24.61</b></td>
+            <td><b style="color: green">156.30</b></td>
         </tr>
         <tr>
             <th>Spring Boot (Java 21)</th>

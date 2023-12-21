@@ -9,7 +9,7 @@ Globals:
     Tracing: Active
     CodeUri: target/quarkus-lambda-function-1.0.0-SNAPSHOT-aws.jar
     Handler: io.quarkus.amazon.lambda.runtime.QuarkusStreamHandler::handleRequest
-    Runtime: java17
+    Runtime: java21
     Timeout: 30
     MemorySize: 1024
     AutoPublishAlias: live

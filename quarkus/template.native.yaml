@@ -9,7 +9,7 @@ Globals:
     Tracing: Active
     CodeUri: target/function.zip
     Handler: not.used.in.provided.runtime
-    Runtime: provided
+    Runtime: provided.al2023
     Timeout: 30
     MemorySize: 1024
     Environment:
