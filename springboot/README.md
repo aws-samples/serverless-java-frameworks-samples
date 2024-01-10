@@ -29,17 +29,17 @@ You can learn more about SnapStart and Priming [here](https://aws.amazon.com/blo
 
 On macOS:
 ```bash
-docker run -v ~/.m2/repository:/root/.m2/repository --mount type=bind,source=$(pwd),destination=/project -it --entrypoint /bin/bash marksailes/al2-graalvm:11-22.0.0.2
+docker run -v ~/.m2/repository:/root/.m2/repository --mount type=bind,source=$(pwd),destination=/project -it --entrypoint /bin/bash dmahapatro/al2023-graalvm:21-21.0.1
 ```
 
 On macOS ARM:
 ```bash
-docker run --mount type=bind,source=$(pwd),destination=/project -it --entrypoint /bin/bash marksailes/arm64-al2-graalvm:17-22.0.0.2
+docker run -v ~/.m2/repository:/root/.m2/repository --mount type=bind,source=$(pwd),destination=/project -it --entrypoint /bin/bash aneelm/al2023-graalvm:aarm64-21-21.0.1
 ```
 
 On Windows:
 ```bash
-docker run -v <SPRING_BOOT_DIR_ABSOLUTE_PATH>:/project -it --entrypoint /bin/bash marksailes/al2-graalvm:11-22.0.0.2
+docker run -v <SPRING_BOOT_DIR_ABSOLUTE_PATH>:/project -it --entrypoint /bin/bash dmahapatro/al2023-graalvm:21-21.0.1
 ```
 Make sure to replace `SPRING_BOOT_DIR_ABSOLUTE_PATH` with an absolute path to springboot directory.
 

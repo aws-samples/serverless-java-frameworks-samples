@@ -85,26 +85,26 @@ All latencies listed below are in milliseconds.
             <td>314.99</td>
         </tr>
         <tr>
-            <th>Quarkus (Java 17)</th>
-            <td><b style="color: green">2525.22</b></td>
-            <td><b style="color: green">3146.27</b></td>
-            <td><b style="color: green">4055.57</b></td>
-            <td><b style="color: green">6343.83</b></td>
-            <td><b style="color: green">7.50</b></td>
-            <td><b style="color: green">12.28</b></td>
-            <td><b style="color: green">29.87</b></td>
-            <td><b style="color: green">231.52</b></td>
+            <th>Quarkus (Java 21)</th>
+            <td><b style="color: green">2807.45</b></td>
+            <td><b style="color: green">3330.47</b></td>
+            <td><b style="color: green">4051.52</b></td>
+            <td><b style="color: green">4483.37</b></td>
+            <td><b style="color: green">8.07</b></td>
+            <td><b style="color: green">12.91</b></td>
+            <td><b style="color: green">24.61</b></td>
+            <td><b style="color: green">156.30</b></td>
         </tr>
         <tr>
-            <th>Spring Boot (Java 17)</th>
-            <td>5311.93</td>
-            <td>5645.88</td>
-            <td>6183.47</td>
-            <td>7027.66</td>
-            <td>8.13</td>
-            <td>13.01</td>
-            <td>30.03</td>
-            <td>251.27</td>
+            <th>Spring Boot (Java 21)</th>
+            <td>5731.16</td>
+            <td>6018.84</td>
+            <td>6258.09</td>
+            <td>7011.35</td>
+            <td>8.32</td>
+            <td>13.54</td>
+            <td>26.65</td>
+            <td>174.24</td>
         </tr>
         <tr>
             <th>Dagger *</th>
@@ -153,26 +153,26 @@ It fits particularly well with Lambda to reduce the initialization time, but doe
             <td>244.82</td>
         </tr>
         <tr>
-            <th>Quarkus (Java 17)</th>
-            <td><b style="color: green">487.31</b></td>
-            <td><b style="color: green">586.87</b></td>
-            <td><b style="color: green">732.67</b></td>
-            <td><b style="color: green">932.17</b></td>
-            <td><b style="color: green">7.38</b></td>
-            <td><b style="color: green">11.91</b></td>
-            <td><b style="color: green">25.20</b></td>
-            <td><b style="color: green">147.26</b></td>
+            <th>Quarkus (Java 21)</th>
+            <td><b style="color: green">680.44</b></td>
+            <td><b style="color: green">812.12</b></td>
+            <td><b style="color: green">922.04</b></td>
+            <td><b style="color: green">1038.75</b></td>
+            <td><b style="color: green">7.75</b></td>
+            <td><b style="color: green">13.11</b></td>
+            <td><b style="color: green">23.84</b></td>
+            <td><b style="color: green">174.29</b></td>
         </tr>
         <tr>
-            <th>Spring Boot (Java 17)</th>
-            <td>1047.87</td>
-            <td>1200.45</td>
-            <td>1597.68</td>
-            <td>1779.53</td>
-            <td>7.62</td>
-            <td>13.01</td>
-            <td>27.73</td>
-            <td>262.25</td>
+            <th>Spring Boot (Java 21)</th>
+            <td>1085.19</td>
+            <td>1278.47</td>
+            <td>1583.38</td>
+            <td>1967.14</td>
+            <td>7.10</td>
+            <td>12.01</td>
+            <td>23.09</td>
+            <td>207.14</td>
         </tr>
 </table>
 
@@ -208,26 +208,26 @@ It fits particularly well with Lambda to reduce the initialization time, but doe
             <td>1029.55</td>
         </tr>
         <tr>
-            <th>Quarkus (22.3.r17)</th>
-            <td>467.27</td>
-            <td>599.77</td>
-            <td>802.43</td>
-            <td>1348.78</td>
-            <td>6.7</td>
-            <td>11.63</td>
-            <td>24.03</td>
-            <td>168.47</td>
+            <th>Quarkus</th>
+            <td>459.40</td>
+            <td>507.19</td>
+            <td>539.07</td>
+            <td>583.33</td>
+            <td>7.04</td>
+            <td>11.82</td>
+            <td>19.38</td>
+            <td>228.46</td>
         </tr>
         <tr>
             <th>Spring Boot</th>
-            <td>620.66</td>
-            <td>684.53</td>
-            <td>721.77</td>
-            <td>751.98</td>
-            <td>9.10</td>
-            <td>14.22</td>
-            <td>23.61</td>
-            <td>259.16</td>
+            <td>732.67</td>
+            <td>835.17</td>
+            <td>918.36</td>
+            <td>1083.40</td>
+            <td>8.53</td>
+            <td>13.54</td>
+            <td>22.01</td>
+            <td>156.96</td>
         </tr>
 </table>
 
